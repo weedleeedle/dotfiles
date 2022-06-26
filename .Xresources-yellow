@@ -1,0 +1,4 @@
+*.font:		xft:Fira Code:size=11
+*.background:	#f7c604
+*.foreground:	#000000
+URxvt.scrollBar:	false
