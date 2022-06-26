@@ -1,0 +1,3 @@
+for ((i=20000;i--;)); do
+fortune
+done

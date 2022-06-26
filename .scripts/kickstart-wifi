@@ -1,0 +1,9 @@
+#!/bin/bash
+ifconfig enp12s0 down
+ifconfig wlp2s0 down
+dhclient -r wlp2s0 
+iwconfig wlp2s0 essid "stoll-hifi"
+iwconfig wlp2s0 mode Managed
+ifconfig wlp2s0 up
+dhclient wlp2s0 
+ 

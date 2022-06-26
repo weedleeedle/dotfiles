@@ -1,0 +1,9 @@
+*.font:		xft:Fira Code:size=11
+*.background:	#202020
+*.foreground:	#A00000
+URxvt.scrollBar:	false
+
+!ROFI
+rofi.font:	Fira Code 10
+rofi.color-normal: #202020,	#A00000,	#202020,	#302020,	#A00000
+rofi.color-window: #202020,	#A00000,	#202020
