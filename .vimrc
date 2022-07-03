@@ -54,14 +54,17 @@ func! WordProcessorMode()
     setlocal smartindent
     setlocal spell spelllang=en_us
     setlocal noexpandtab
+    setlocal statusline=%{WordCount()}\ words
     set nonu
     Goyo
 endfu
+
 
 let g:word_count="<unknown>"
 function WordCount()
 	return g:word_count
 endfunction
+
 function UpdateWordCount()
 	let lnum = 1
 	let n = 0
@@ -84,7 +87,6 @@ set statusline+=%<%F			" file name, cut if needed at start
 set statusline+=%M			" modified flag
 set statusline+=%y			" file type
 set statusline+=%=			" separator from left to right justified
-set statusline+=\ %{WordCount()}\ words,
 set statusline+=\ %l/%L\ lines,\ %P	" percentage through the file
 
 com! Word call WordProcessorMode()
