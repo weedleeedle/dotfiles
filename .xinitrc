@@ -61,5 +61,6 @@ xbindkeys
 udiskie --tray &
 xscreensaver &
 autorandr -c 
+xcompmgr &
 #Start awesome!
 exec /usr/bin/awesome -c /home/viperzer0/.config/awesome/rc.lua >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
