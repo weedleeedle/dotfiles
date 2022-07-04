@@ -21,7 +21,7 @@ local vicious = require("vicious")
 --power.critical_percentage = 10
 
 --CUSTOM MODULE
-local viperzer0 = require("viperzer0")
+local keybinds = require("keybinds")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -64,7 +64,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/" .. THEME ..
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-viperzer0.terminal = terminal
+keybinds.terminal = terminal
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -74,7 +74,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
-viperzer0.modkey = modkey
+keybinds.modkey = modkey
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -245,7 +245,7 @@ root.buttons(gears.table.join(
 -- }}}
 
 --Custom keys
-globalkeys = viperzer0.keybinds(globalkeys)
+globalkeys = keybinds.keybinds(globalkeys)
 --[[
 globalkeys = gears.table.join(
 awful.key({ }, "Print", function() awful.spawn("sh /home/viperzer0/.scripts/screenshot.sh") end,
