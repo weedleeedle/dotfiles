@@ -37,4 +37,5 @@
 /cmus/search-history filter=lfs diff=lfs merge=lfs -text
 *.rasi filter=lfs diff=lfs merge=lfs -text
 /awesome/themes/space/README filter=lfs diff=lfs merge=lfs -text
+*.Xresources-space filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
