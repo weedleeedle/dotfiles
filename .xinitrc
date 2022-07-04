@@ -47,6 +47,8 @@ if [[ -n "`which luarocks 2>/dev/null`" ]]; then
     eval `luarocks path --bin`
 fi
 
+#Set LS colors
+eval "$(dircolors $DOTFILES/.dircolors)"
 #Set rofi config theme
 rm $XDG_CONFIG_HOME/rofi/config.rasi
 ln -s $DOTFILES/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
