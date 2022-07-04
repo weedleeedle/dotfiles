@@ -1,2 +1,0 @@
-#! /bin/bash
-find * | egrep "$1" | egrep ".mp3" | xargs -d '\n' mid3v2 -g "$2" 

@@ -35,4 +35,5 @@
 *.pl filter=lfs diff=lfs merge=lfs -text
 /cmus/playlists/default filter=lfs diff=lfs merge=lfs -text
 /cmus/search-history filter=lfs diff=lfs merge=lfs -text
+*.rasi filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff

@@ -1,6 +1,13 @@
 #!/bin/sh
-xinput --map-to-output 'Melfas LGDisplay Incell Touch' eDP1
-#xmodmap ~/.capless
+#xinput --map-to-output 'Melfas LGDisplay Incell Touch' eDP1
+
+#THEME VARIABLE
+export THEME="red"
+
+#config directory
+export XDG_CONFIG_HOME="/home/viperzer0/.config"
+
+#Some default stuff apparently
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -39,34 +46,24 @@ fi
 if [[ -n "`which luarocks 2>/dev/null`" ]]; then
     eval `luarocks path --bin`
 fi
-#Keyboard stuff
-fcitx5 -d
-#set in /etc/X11/xorg.conf.d/00-keyboard.conf instead
-#setxkbmap -option compose:caps
-xbindkeys
-export THEME="red"
-export XDG_CONFIG_HOME="/home/viperzer0/.config"
+
+#Set rofi config theme
 rm $XDG_CONFIG_HOME/rofi/config.rasi
 ln -s $XDG_CONFIG_HOME/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
-#Background script
+#Load terminal colors and stuff
+xrdb .Xresources-$THEME
+#START APPLICATIONS
+#Keyboard stuff
+fcitx5 -d
+#Sets media control keys/backlight keys
+xbindkeys
+#Pscircle background. Should be able to just be ignored if not using I think?
 /home/viperzer0/.scripts/pscircle-$THEME.sh &
+#Some other applications we want to start
 udiskie --tray &
 xscreensaver &
-xrdb .Xresources-$THEME
-#cadence-session-start -s >> ~/.cache/cadence/stdout 2>> ~/.cache/awesome/stderr
-#For some reason this helps
-#pulseaudio -D
-#sleep 2
-#killall pulseaudio
-#pulseaudio --kill
-#sleep 2
-#pulseaudio -D
 autorandr -c 
-/home/viperzer0/.scripts/map-wacom.sh &
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
+#Start awesome!
 exec /usr/bin/awesome -c /home/viperzer0/.config/awesome/rc.lua >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
-#xclock -geometry 50x50-1+1 &
-#xterm -geometry 80x50+494+51 &
-#xterm -geometry 80x20+494-0 &
-#exec xterm -geometry 80x66+0+0 -name login
