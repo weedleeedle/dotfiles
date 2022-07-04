@@ -14,7 +14,6 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 --ADDING WIDGETS
-
 local vicious = require("vicious")
 --local power = require("power_widget")
 --power.gui_client = "xfce4-power-manager-settings"
