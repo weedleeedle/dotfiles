@@ -47,8 +47,6 @@ if [[ -n "`which luarocks 2>/dev/null`" ]]; then
     eval `luarocks path --bin`
 fi
 
-#Set LS colors
-eval "$(dircolors $DOTFILES/.dircolors)"
 #Set rofi config theme
 rm $XDG_CONFIG_HOME/rofi/config.rasi
 ln -s $DOTFILES/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
@@ -63,7 +61,5 @@ xbindkeys
 udiskie --tray &
 xscreensaver &
 autorandr -c 
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
 #Start awesome!
 exec /usr/bin/awesome -c /home/viperzer0/.config/awesome/rc.lua >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
