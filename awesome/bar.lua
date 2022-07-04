@@ -36,7 +36,7 @@ return function(s)
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s,width = "95%", height= dpi(25),
-        shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,5) end
+        shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,10) end
     }) 
     --[[
     s.wiboxborder = wibox.container.margin({widget=s.mywibox,

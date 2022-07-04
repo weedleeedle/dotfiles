@@ -1,11 +1,12 @@
 * {
-	background-color: #202020;
-	text-color: #A00000;
+	background-color: #101010C0;
+	text-color: #f89341;
 	font:	"Fira Mono 9";
-	border-color: #A00000;
+	border-color: #f89341;
 }
 
 window {
+    transparency: "real";
 	background-color: @background-color;
 }
 scrollbar {
@@ -35,5 +36,5 @@ entrybox.normal.active
 /*
 element-text
 {
-	highlight:	underline red;
+	highlight:	underline;
 }*/
