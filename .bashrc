@@ -20,8 +20,9 @@ export GLEAMVIZ_INSTALLDIR="/home/viperzer0/GLEAMviz"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
+#Not needed? Don't remember what this is for
+#eval $(gnome-keyring-daemon --start)
+#export SSH_AUTH_SOCK
 
 #Set LS colors
 eval "$(dircolors $DOTFILES/.dircolors)"
