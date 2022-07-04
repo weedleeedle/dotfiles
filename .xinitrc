@@ -1,11 +1,11 @@
 #!/bin/sh
-#xinput --map-to-output 'Melfas LGDisplay Incell Touch' eDP1
 
 #THEME VARIABLE
-export THEME="red"
+export THEME="space"
 
 #config directory
 export XDG_CONFIG_HOME="/home/viperzer0/.config"
+export DOTFILES="/home/viperzer0/.dotfiles"
 
 #Some default stuff apparently
 userresources=$HOME/.Xresources
@@ -49,16 +49,14 @@ fi
 
 #Set rofi config theme
 rm $XDG_CONFIG_HOME/rofi/config.rasi
-ln -s $XDG_CONFIG_HOME/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
+ln -s $DOTFILES/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
 #Load terminal colors and stuff
-xrdb .Xresources-$THEME
+xrdb $DOTFILES/Xresources/.Xresources-$THEME
 #START APPLICATIONS
 #Keyboard stuff
 fcitx5 -d
 #Sets media control keys/backlight keys
 xbindkeys
-#Pscircle background. Should be able to just be ignored if not using I think?
-/home/viperzer0/.scripts/pscircle-$THEME.sh &
 #Some other applications we want to start
 udiskie --tray &
 xscreensaver &
