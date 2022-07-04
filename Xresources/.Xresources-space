@@ -1,5 +1,5 @@
 *.font:		xft:Fira Code:size=11
 *.background:	#202020
-*.foreground:	#834e2e
+*.foreground:	#f89341
 URxvt.scrollBar:	false
 
