@@ -39,4 +39,5 @@
 /awesome/themes/space/README filter=lfs diff=lfs merge=lfs -text
 *.Xresources-space filter=lfs diff=lfs merge=lfs -text
 *.dircolors filter=lfs diff=lfs merge=lfs -text
+*.vim filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
