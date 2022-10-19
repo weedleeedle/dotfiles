@@ -1,29 +1,3 @@
-" Install Vim-Plug if not previously installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    autocmd VimEnter * PlugInstall
-endif
-
-" Plugins!
-call plug#begin('~/.vim/plugged')
-Plug 'flazz/vim-colorschemes'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'dense-analysis/ale'
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
-Plug 'tclem/vim-arduino'
-Plug 'widatama/vim-phoenix'
-Plug 'lervag/vimtex'
-call plug#end()
-
 "Hello World!"
 " Mappings
 let mapleader="'"
