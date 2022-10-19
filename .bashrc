@@ -26,4 +26,4 @@ source /usr/bin/virtualenvwrapper.sh
 
 #Set LS colors
 eval "$(dircolors $DOTFILES/.dircolors)"
-
+echo `python $HOME/Code/linuxSays/script.py -p`
