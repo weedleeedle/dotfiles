@@ -93,8 +93,6 @@ if !has('nvim')
 endif
 set tags=./tags;
 filetype plugin on
-colors phoenix
-PhoenixRed
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "Closes preview window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
