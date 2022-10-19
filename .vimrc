@@ -24,6 +24,7 @@ Plug 'widatama/vim-phoenix'
 Plug 'lervag/vimtex'
 call plug#end()
 
+"Hello World!"
 " Mappings
 let mapleader="'"
 inoremap jk <esc>
@@ -107,14 +108,22 @@ set wildmode=full
 set textwidth=0
 set wrapmargin=0
 set showcmd
+
+" Disable auto commenting in c and C++ files
+autocmd FileType c,cpp,h setlocal formatoptions-=c formatoptions-=o formatoptions-=r
+
 syntax enable
 set t_Co=256
-set viminfo='100,h,n~/.vim/viminfo'
+if !has('nvim')
+    set viminfo='100,h,n~/.vim/viminfo'
+endif
 set tags=./tags;
 filetype plugin on
 colors phoenix
 PhoenixRed
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"Closes preview window after completion
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd BufReadPost *.odt :%!odt2txt %
