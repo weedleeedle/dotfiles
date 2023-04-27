@@ -29,6 +29,7 @@ Plug 'adamclerk/vim-razor'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 colorscheme enigma
