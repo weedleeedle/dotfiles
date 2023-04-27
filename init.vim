@@ -25,8 +25,11 @@ Plug 'tclem/vim-arduino'
 Plug 'widatama/vim-phoenix'
 Plug 'lervag/vimtex'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'adamclerk/vim-razor'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'lambdalisue/suda.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-colors phoenix
-PhoenixRed
+colorscheme enigma
 
