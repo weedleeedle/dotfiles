@@ -9,7 +9,7 @@ PS1='[\u@\h \w]\$ '
 if [ -f ~/.bash_alias ]; then
 . ~/.bash_alias
 fi
-export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts:$HOME/.dotnet/tools
+export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts:$HOME/.dotnet/tools:$HOME/.cargo/bin
 
 export GLEAMVIZ_ROOT="/home/viperzer0/GLEAMviz-data"
 
@@ -25,5 +25,8 @@ source /usr/bin/virtualenvwrapper.sh
 #export SSH_AUTH_SOCK
 
 #Set LS colors
+INSTALLED_VERSION=`pacman -Qi linux | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
+RUNNING_VERSION=`uname -r | sed 's/-/./'`
+[ $INSTALLED_VERSION != $RUNNING_VERSION ] && echo "New Kernel version available!"
 eval "$(dircolors $DOTFILES/.dircolors)"
 echo `python $HOME/Code/linuxSays/script.py -p`
