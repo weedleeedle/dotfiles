@@ -1,1 +1,2 @@
 alias vim="nvim"
+alias bandcamp-dl="bandcamp-dl --base-dir=~/music"
