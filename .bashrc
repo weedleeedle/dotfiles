@@ -24,9 +24,9 @@ source /usr/bin/virtualenvwrapper.sh
 #eval $(gnome-keyring-daemon --start)
 #export SSH_AUTH_SOCK
 
-#Set LS colors
 INSTALLED_VERSION=`pacman -Qi linux | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
 RUNNING_VERSION=`uname -r | sed 's/-/./'`
 [ $INSTALLED_VERSION != $RUNNING_VERSION ] && echo "New Kernel version available!"
+#Set LS colors
 eval "$(dircolors $DOTFILES/.dircolors)"
 echo `python $HOME/Code/linuxSays/script.py -p`
