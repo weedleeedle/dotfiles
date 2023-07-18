@@ -20,16 +20,19 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
-Plug 'tclem/vim-arduino'
+#Plug 'Valloric/YouCompleteMe'
+#Plug 'tclem/vim-arduino'
 Plug 'widatama/vim-phoenix'
-Plug 'lervag/vimtex'
+#Plug 'lervag/vimtex'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'adamclerk/vim-razor'
-Plug 'OmniSharp/omnisharp-vim'
+#Plug 'adamclerk/vim-razor'
+#Plug 'OmniSharp/omnisharp-vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'pangloss/vim-javascript'
+Plug 'VonHeikemen/lsp-zero.nvim'
 call plug#end()
 
 colorscheme enigma
