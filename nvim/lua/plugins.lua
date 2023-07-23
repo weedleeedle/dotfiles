@@ -29,14 +29,17 @@ return require('packer').startup(function(use)
         run = ":call doge#install()"
     }
 
-    use { 
+    use {
         'nvim-telescope/telescope-file-browser.nvim',
         requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     }
     use {
+        'OliverChao/telescope-picker-list.nvim'
+    }
+    use {
         'neovim/nvim-lspconfig'
     }
-    use { 
+    use {
         'hrsh7th/vim-vsnip'
     }
     use {
@@ -49,10 +52,9 @@ return require('packer').startup(function(use)
         -- 'hrsh7th/cmp-path'
         'FelipeLema/cmp-async-path'
     }
-    use { 
+    use {
         'hrsh7th/nvim-cmp'
     }
- 
 end)
 
 
