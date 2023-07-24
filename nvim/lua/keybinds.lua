@@ -9,3 +9,6 @@ vim.keymap.set('n', '<F3>', require('telescope').extensions.file_browser.file_br
 --Expand error
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
 
+--Quick fix
+vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, {});
+
