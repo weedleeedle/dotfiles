@@ -1,0 +1,10 @@
+[user]
+	email = 11594471+ViperZer0@users.noreply.github.com
+	name = ViperZer0
+[core]
+	editor = vim
+	autocrlf = input
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
