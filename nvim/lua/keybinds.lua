@@ -14,3 +14,4 @@ vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, {});
 
 --Line numbers
 vim.keymap.set('n', '<F2>', vim.fn.ToggleLineNumbers, {});
+
