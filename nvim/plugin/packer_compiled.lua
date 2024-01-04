@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?/init.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,6 +74,16 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["cmp-async-path"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/cmp-async-path",
+    url = "https://github.com/FelipeLema/cmp-async-path"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -134,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+  ["telescope-picker-list.nvim"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/telescope-picker-list.nvim",
+    url = "https://github.com/OliverChao/telescope-picker-list.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -154,6 +169,15 @@ _G.packer_plugins = {
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
+  ["vim-tmux-navigator"] = {
+    commands = { "TmuxNavigateLeft", "TmuxNavigateRight", "TmuxNavigateUp", "TmuxNavigateRight", "TmuxNavigatePrevious" },
+    keys = { { "", "<c-h> <cmd>TmuxNavigateLeft<cr>" }, { "", "<c-j> <cmd>TmuxNavigateDown<cr>" }, { "", "<c-k> <cmd>TmuxNavigateUp<cr>" }, { "", "<c-l> <cmd>TmuxNavigateRight<cr>" } },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/opt/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -162,6 +186,47 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigatePrevious', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigatePrevious', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigatePrevious ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigateLeft', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateLeft', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigateLeft ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigateRight', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, { cmd = 'TmuxNavigateRight', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigateRight ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigateUp', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateUp', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigateUp ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
+-- Keymap lazy-loads
+time([[Defining lazy-load keymaps]], true)
+vim.cmd [[noremap <silent> <c-l> <cmd>TmuxNavigateRight<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-l> <lt>cmd>TmuxNavigateRight<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <c-k> <cmd>TmuxNavigateUp<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-k> <lt>cmd>TmuxNavigateUp<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <c-h> <cmd>TmuxNavigateLeft<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-h> <lt>cmd>TmuxNavigateLeft<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <c-j> <cmd>TmuxNavigateDown<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-j> <lt>cmd>TmuxNavigateDown<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
+time([[Defining lazy-load keymaps]], false)
+
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

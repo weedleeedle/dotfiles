@@ -18,6 +18,9 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/viperzer0/GLEAMviz/libs"
 export GLEAMVIZ_INSTALLDIR="/home/viperzer0/GLEAMviz"
 
 export WORKON_HOME=$HOME/.virtualenvs
+
+export EDITOR=nvim
+
 source /usr/bin/virtualenvwrapper.sh
 
 #Not needed? Don't remember what this is for

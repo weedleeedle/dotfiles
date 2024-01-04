@@ -2,7 +2,16 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.rust_analyzer.setup{
-    capabilites = capabilities
+    capabilites = capabilities,
+    --[[
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                features = {"all", "test"}
+            }
+        }
+    }
+    --]]
 }
 
 lspconfig.omnisharp.setup {

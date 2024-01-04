@@ -55,6 +55,22 @@ return require('packer').startup(function(use)
     use {
         'hrsh7th/nvim-cmp'
     }
+    use {
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateRight",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+        },
+        keys = {
+            { "", "<c-h> <cmd>TmuxNavigateLeft<cr>" },
+            { "", "<c-j> <cmd>TmuxNavigateDown<cr>" },
+            { "", "<c-k> <cmd>TmuxNavigateUp<cr>" },
+            { "", "<c-l> <cmd>TmuxNavigateRight<cr>" },
+        },
+    }
 end)
 
 
