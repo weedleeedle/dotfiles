@@ -114,6 +114,16 @@ _G.packer_plugins = {
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/scrooloose/nerdcommenter"
   },
+  ["noice.nvim"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/noice.nvim",
+    url = "https://github.com/folke/noice.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -123,6 +133,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/viperzer0/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -189,6 +209,13 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigateUp', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateUp', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigateUp ', 'cmdline')
+      end})
 pcall(vim.api.nvim_create_user_command, 'TmuxNavigatePrevious', function(cmdargs)
           require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigatePrevious', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -209,13 +236,6 @@ pcall(vim.api.nvim_create_user_command, 'TmuxNavigateRight', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('TmuxNavigateRight ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'TmuxNavigateUp', function(cmdargs)
-          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateUp', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TmuxNavigateUp ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
