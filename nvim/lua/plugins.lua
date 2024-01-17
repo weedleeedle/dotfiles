@@ -10,7 +10,13 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = function ()
+            local ts_update = require('nvim-treesitter.install').update({with_sync = true})
+            ts_update()
+        end,
+    }
     use 'flazz/vim-colorschemes'
     use 'junegunn/goyo.vim'
     use 'itchyny/lightline.vim'
@@ -71,6 +77,15 @@ return require('packer').startup(function(use)
             { "", "<c-l> <cmd>TmuxNavigateRight<cr>" },
         },
     }
+    use {
+        "folke/noice.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    }
 end)
+
+
 
 
