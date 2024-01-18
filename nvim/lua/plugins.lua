@@ -4,7 +4,6 @@ return require('packer').startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    
     -- Fuzzy Finder
     use {
         'nvim-telescope/telescope.nvim',
@@ -19,7 +18,10 @@ return require('packer').startup(function(use)
     }
     use 'flazz/vim-colorschemes'
     use 'junegunn/goyo.vim'
-    use 'itchyny/lightline.vim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt=true}
+    }
     -- Replaced with telescope.
     --use 'scrooloose/nerdtree'
     use 'tpope/vim-surround'
