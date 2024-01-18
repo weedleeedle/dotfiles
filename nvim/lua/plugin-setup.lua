@@ -6,6 +6,10 @@ require("telescope").setup {
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "picker_list"
 
+require('lualine').setup {
+    options = { theme = "ayu_mirage" }
+}
+
 local cmp = require('cmp')
 cmp.setup({
     snippet = {
