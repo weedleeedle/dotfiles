@@ -1,0 +1,33 @@
+# Some generic temporary files that don't need to be backed up
+.cache
+Downloads
+.dbus
+.adobe
+.macromedia
+.xession-errors
+.Xauthority
+.pulse
+.pulse-cookie
+.esd_auth
+
+# Firefox
+.mozilla/firefox/*/Cache
+.mozilla/firefox/*/minidumps    # in case Fx crashes dumps will be stored in this
+.mozilla/firefox/*/.parentlock       # session-specific
+.mozilla/firefox/*/urlclassifier3.sqlite  # phishing database, recreated
+.mozilla/firefox/*/blocklist.xml   # blacklisted extensions
+.mozilla/firefox/*/extensions.sqlite  # extension database, recreated on startup
+.mozilla/firefox/*/extensions.sqlite-journal
+.mozilla/firefox/*/extensions.rdf
+.mozilla/firefox/*/extensions.ini
+.mozilla/firefox/*/extensions.cache
+.mozilla/firefox/*/XUL.mfasl     # cached UI data, recreated
+.mozilla/firefox/*/XPC.mfasl
+.mozilla/firefox/*/xpti.dat
+.mozilla/firefox/*/compreg.dat
+
+# Google Chrome
+.config/google-chrome/Default/Local Storage
+.config/google-chrome/Default/Session Storage
+.config/google-chrome/Default/Application Cache
+.config/google-chrome/History Index *
