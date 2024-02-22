@@ -31,3 +31,16 @@ Downloads
 .config/google-chrome/Default/Session Storage
 .config/google-chrome/Default/Application Cache
 .config/google-chrome/History Index *
+
+# Steam
+.local/share/Steam
+
+# Caches???
+cache
+Cache
+*cache
+*Cache
+
+# Privleged folders
+builds/mullvad-vpn-cli/pkg
+postgres/data
