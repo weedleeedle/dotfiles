@@ -1,6 +1,6 @@
-*.font:		xft:Fira Code:size=11
-*.background:	[80]#101010
-*.foreground:	#f89341
+XTerm*faceName:		xft:Fira Code:size=11
+*background:	#101010
+*foreground:	#f89341
 URxvt.depth:    32
 URxvt.scrollBar:	false
 URxvt.geometry: 1x5000
