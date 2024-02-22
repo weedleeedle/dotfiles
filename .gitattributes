@@ -45,4 +45,5 @@
 *.json filter=lfs diff=lfs merge=lfs -text
 *.gitconfig filter=lfs diff=lfs merge=lfs -text
 /backup-exclude filter=lfs diff=lfs merge=lfs -text
+*.bash_profile filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
