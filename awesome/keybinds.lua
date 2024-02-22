@@ -2,7 +2,7 @@ local viperzer0 = {}
 local awful = require("awful")
 local gears = require("gears")
 local naughty = require("naughty")
-terminal = "urxvt"
+terminal = "xterm"
 modkey = "Mod4"
 local floaters = {}
 
