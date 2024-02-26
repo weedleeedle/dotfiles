@@ -19,7 +19,8 @@ function viperzer0.keybinds(globalkeys)
 		{description = "selection screenshot", group = "custom"}),
 		awful.key({"Shift" }, "Print", function() awful.spawn("sh /home/viperzer0/.scripts/screenshot.sh -g") end,
 		{description = "screenshot", group = "custom"}),
-		awful.key({"Control", "shift", modkey,},"v", function() awful.spawn(terminal .. "-e CM_LAUNCHER=\"rofi\" clipmenu") end, {description = "open clipboard", group="custom"})
+		awful.key({"Shift", modkey,},"v", function() awful.spawn("clipmenu") end, {description = "open clipboard", group="custom"}),
+        awful.key({modkey, }, "c", function() awful.spawn('rofi -show pass -modes "pass:/home/viperzer0/.scripts/rofi-pass.sh"') end, {description = "copy password", group="custom"})
 	)
 	return globalkeys
 end
