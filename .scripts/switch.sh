@@ -1,4 +1,6 @@
 #!/bin/bash
+# Not used anymore, but used to switch back and forth between bypassing
+# an Internet monitoring/filtering device or not.
 S1=$(ip n show | grep 3c:90:66:71:0f:e8 | grep PERMANENT)
 if [ -z "$S1" ]; then
 	echo "Bypass Activ8"
