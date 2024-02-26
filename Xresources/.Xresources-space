@@ -8,4 +8,6 @@ URxvt.geometry: 1x5000
 ! Fix backspace character
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
+! Fix Alt+ combinations
+XTerm.vt100.metaSendsEscape: true
 
