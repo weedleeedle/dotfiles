@@ -45,9 +45,6 @@ return require('packer').startup(function(use)
         'OliverChao/telescope-picker-list.nvim'
     }
     use {
-        'neovim/nvim-lspconfig'
-    }
-    use {
         'hrsh7th/vim-vsnip'
     }
     use {
