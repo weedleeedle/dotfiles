@@ -10,5 +10,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export EDITOR=nvim
 
+export CM_LAUNCHER=rofi
 #export restic env variables
 #source <(sudo cat /etc/restic-env)
