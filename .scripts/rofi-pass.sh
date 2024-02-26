@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script interfaces with rofi to show the list of available passwords,
+# including those in subdirectories. When a password is chosen it is copied to
+# the clipboard. Shouldn't really be called by hand?
 PASS_DIR=$HOME/.password-store/
 # We need an external file to keep track of what directory we are "in"
 STATE_FILE=/tmp/rofi_current_dir

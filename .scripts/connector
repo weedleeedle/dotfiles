@@ -1,4 +1,7 @@
 #!/bin/bash
+# Script for automating connection to wifi network. 
+# Defunct, not used anymore.
+# Will probably be removed!
 killall -9 wpa_supplicant
 
 rm -f /tmp/current_wpa.conf

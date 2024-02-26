@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Sometimes I want to capture audio from multiple devices (i.e my microphone and
+# a capture card. This script creates new sinks/sources with PulseAudio so that
+# audio can be routed as a "stream" setup.
+# Can be undone with -u.
 if [ "$1" == "-u" ]; then
   pactl unload-module module-loopback
   pactl unload-module module-null-sink

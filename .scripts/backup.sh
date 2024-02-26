@@ -1,5 +1,10 @@
 #!/bin/bash
-command="restic backup --verbose --exclude-caches=true --exclude-file /home/viperzer0/.dotfiles/backup-exclude /home/viperzer0 2>&1"
+
+# This script executes a backup of the home directory (using restic, hardcoded)
+# and then emails $NOTIFY_EMAIL_ADDRESS with the results of the backup.
+# It excludes anything matching the patterns found in
+# $HOME/.dotfiles/backup-exclude and any folders marked as caches.
+command="restic backup --verbose --exclude-caches=true --exclude-file $HOME/.dotfiles/backup-exclude $HOME 2>&1"
 output=$(eval "${command}")
 result=$?
 

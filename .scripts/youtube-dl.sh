@@ -1,4 +1,8 @@
 #!/bin/bash
+# Takes four arguments:
+# The artist name, the album name, the track name, and the youtube URL.
+# It downloads the piece, moves it to $HOME/music/artist/album/track.mp3 and
+# adds the correct tags.
 artist="$1"
 album="$2"
 track="$3"
