@@ -6,8 +6,13 @@
 PASS_DIR=$HOME/.password-store/
 # We need an external file to keep track of what directory we are "in"
 STATE_FILE=/tmp/rofi_current_dir
-CURRENT_DIR=$(<$STATE_FILE)
 
+# Reset state file if on a brand new invocation (i.e no arguments)
+if [ $# -eq 0 ]; then
+    echo "" > "$STATE_FILE"
+fi
+
+CURRENT_DIR=$(<$STATE_FILE)
 # If the supplied argument is the password file, execute and return nothing.
 if [ -f "${PASS_DIR}${CURRENT_DIR}$1.gpg" ] ; then
     nohup clipctl disable && /usr/bin/pass show -c ${CURRENT_DIR}$1 > /dev/null 2>&1 ; clipctl enable &
