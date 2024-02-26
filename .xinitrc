@@ -48,7 +48,8 @@ fi
 if [[ -n "`which luarocks 2>/dev/null`" ]]; then
     eval `luarocks path --bin`
 fi
-
+#Give clipmenu and other applications access to $DISPLAY
+systemctl --user import-environment DISPLAY
 #Set rofi config theme
 rm $XDG_CONFIG_HOME/rofi/config.rasi
 ln -s $DOTFILES/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
