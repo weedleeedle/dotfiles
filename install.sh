@@ -12,6 +12,7 @@ ln -sv $SOURCE_DIR/.gitconfig ~/.gitconfig
 ln -sv $SOURCE_DIR/.gtkrc ~/.gtkrc
 ln -sv $SOURCE_DIR/.XCompose ~/.XCompose
 ln -sv $SOURCE_DIR/.xinitrc ~/.xinitrc
+ln -sv $SOURCE_DIR/.scripts ~/.scripts
 
 # Make dir for rofi theme
 mkdir ~/.config/rofi
