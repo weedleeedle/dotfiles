@@ -15,7 +15,7 @@ fi
 CURRENT_DIR=$(<$STATE_FILE)
 # If the supplied argument is the password file, execute and return nothing.
 if [ -f "${PASS_DIR}${CURRENT_DIR}$1.gpg" ] ; then
-    nohup clipctl disable && /usr/bin/pass show -c ${CURRENT_DIR}$1 > /dev/null 2>&1 ; clipctl enable &
+    nohup sh -c "clipctl disable && /usr/bin/pass show -c ${CURRENT_DIR}$1 ; clipctl enable" > /dev/null 2>&1  &
     # Reset state file
     echo "" > "$STATE_FILE"
     exit 0
