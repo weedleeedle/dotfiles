@@ -14,6 +14,3 @@ export CM_LAUNCHER=rofi
 #export restic env variables
 #source <(sudo cat /etc/restic-env)
 
-# Add custom, sensitive environment variables that shouldn't show up in the git
-# repo
-source $HOME/.dotfiles/.credentials
