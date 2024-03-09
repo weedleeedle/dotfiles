@@ -50,6 +50,8 @@ if [[ -n "`which luarocks 2>/dev/null`" ]]; then
 fi
 #Give clipmenu and other applications access to $DISPLAY
 systemctl --user import-environment DISPLAY
+# We have to start clipmenu manually (since it requires X)
+systemctl --user start clipmenud
 #Set rofi config theme
 rm $XDG_CONFIG_HOME/rofi/config.rasi
 ln -s $DOTFILES/rofi/config-$THEME.rasi $XDG_CONFIG_HOME/rofi/config.rasi
