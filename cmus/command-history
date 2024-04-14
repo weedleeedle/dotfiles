@@ -1,8 +1,8 @@
-add ~/music/
+q
 set status_display_program=cmusfm
+add ~/music/
 get
 set
-q
 set status_display_program=/home/viperzer0/.config/cmus/cmuscrobbler.py
 pl-create default
 pl-import ~/music/playlists/game.pl
