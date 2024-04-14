@@ -215,13 +215,6 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'TmuxNavigateRight', function(cmdargs)
-          require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, { cmd = 'TmuxNavigateRight', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TmuxNavigateRight ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'TmuxNavigateUp', function(cmdargs)
           require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateUp', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -243,14 +236,21 @@ pcall(vim.api.nvim_create_user_command, 'TmuxNavigateLeft', function(cmdargs)
           require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('TmuxNavigateLeft ', 'cmdline')
       end})
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigateRight', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, { cmd = 'TmuxNavigateRight', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigateRight ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
 vim.cmd [[noremap <silent> <c-l> <cmd>TmuxNavigateRight<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-l> <lt>cmd>TmuxNavigateRight<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <c-j> <cmd>TmuxNavigateDown<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-j> <lt>cmd>TmuxNavigateDown<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <c-k> <cmd>TmuxNavigateUp<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-k> <lt>cmd>TmuxNavigateUp<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <c-h> <cmd>TmuxNavigateLeft<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-h> <lt>cmd>TmuxNavigateLeft<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <c-k> <cmd>TmuxNavigateUp<cr> <cmd>lua require("packer.load")({'vim-tmux-navigator'}, { keys = "<lt>c-k> <lt>cmd>TmuxNavigateUp<lt>cr>", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 
