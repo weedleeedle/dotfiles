@@ -10,4 +10,5 @@ XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
 ! Fix Alt+ combinations
 XTerm.vt100.metaSendsEscape: true
+XTerm*selectToClipboard: true
 
