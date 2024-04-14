@@ -48,6 +48,8 @@ fi
 if [[ -n "`which luarocks 2>/dev/null`" ]]; then
     eval `luarocks path --bin`
 fi
+#Disable beep
+xset b off
 #Give clipmenu and other applications access to $DISPLAY
 systemctl --user import-environment DISPLAY
 # We have to start clipmenu manually (since it requires X)
@@ -67,7 +69,7 @@ xbindkeys
 #Some other applications we want to start
 udiskie --tray &
 xscreensaver &
-autorandr -c 
+#autorandr -c 
 xcompmgr &
 #Start awesome!
 exec /usr/bin/awesome -c /home/viperzer0/.config/awesome/rc.lua >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
