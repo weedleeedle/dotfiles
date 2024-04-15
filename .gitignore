@@ -9,3 +9,6 @@ cmus/autosave
 cmus/command-history
 cmus/search-history
 cmus/lib.pl
+cmus/cmusfm.conf
+# Just gonna remove all cmus stuff for now
+cmus/*
