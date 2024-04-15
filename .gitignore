@@ -3,3 +3,9 @@ tmux/plugins
 .credentials
 cache
 scroterror
+
+# Cmus stuff to ignore
+cmus/autosave
+cmus/command-history
+cmus/search-history
+cmus/lib.pl
