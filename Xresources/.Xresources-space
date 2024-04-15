@@ -1,4 +1,4 @@
-XTerm*faceName:		xft:Fira Code:size=11
+XTerm*faceName:		xft:Fira Code:size=12
 *background:	#101010
 *foreground:	#f89341
 URxvt.depth:    32
