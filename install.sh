@@ -5,7 +5,6 @@ CONFIG_DIR=$HOME/.config
 mkdir -p $CONFIG_DIR
 
 ln -sv $SOURCE_DIR/awesome $CONFIG_DIR/awesome
-ln -sv $SOURCE_DIR/cmus $CONFIG_DIR
 ln -sv $SOURCE_DIR/nvim $CONFIG_DIR
 ln -sv $SOURCE_DIR/.vimrc ~/.vimrc
 ln -sv $SOURCE_DIR/.bash_alias ~/.bash_alias
