@@ -18,7 +18,7 @@ theme.font          = "Fira Mono 12"
 --theme.xft_font      = "Fira Mono:size=10"
 
 theme.bg_normal     = "#101010"
-theme.bg_focus      = "#202020"
+theme.bg_focus      = "#303030"
 theme.bg_urgent     = "#f89341"
 theme.bg_minimize   = "#000000"
 theme.bg_systray    = theme.bg_normal
@@ -46,6 +46,12 @@ theme.border_marked = "#91231c"
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
+
+-- Hotkey/"help" window theming
+theme.hotkeys_modifiers_fg = theme.fg_normal
+theme.hotkeys_bg = "#212121"
+theme.hotkeys_border_width = dpi(1)
+theme.hotkeys_border_color = theme.fg_normal
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
