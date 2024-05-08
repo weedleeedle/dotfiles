@@ -5,8 +5,9 @@
 # second is the duration of the break timer. No difference between the two other
 # than the label of the timer and the notification sent after each timer
 # expires.
+RESOURCE_DIR=$(dirname $0)
 while :
 do
-    termdown $1 -T Work && notify-send -u normal -t 10000 "Time's up!" "Time to take a break!" ; aplay ./ping.wav
-    termdown $2 -T Relax && notify-send -u normal -t 10000 "Time's up!" "Time to get back to work!" ; aplay ./ping.wav
+    termdown $1 -T Work && notify-send -u normal -t 10000 "Time's up!" "Time to take a break!" ; aplay $RESOURCE_DIR/ping.wav
+    termdown $2 -T Relax && notify-send -u normal -t 10000 "Time's up!" "Time to get back to work!" ; aplay $RESOURCE_DIR/ping.wav
 done
