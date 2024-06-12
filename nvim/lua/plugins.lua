@@ -97,6 +97,7 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-notify",
         }
     }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- (bootstrap)
     -- KEEP THIS AT THE END

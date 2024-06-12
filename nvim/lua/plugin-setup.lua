@@ -1,7 +1,12 @@
 require("telescope").setup {
     extensions = {
         picker_list = {},
+    },
+    pickers = {
+        find_files = {
+        }
     }
+    
 }
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "picker_list"

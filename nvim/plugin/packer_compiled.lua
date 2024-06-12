@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?/init.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1702233742/lib/lua/5.1/?.so"
+local package_path_str = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/viperzer0/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -215,13 +215,6 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'TmuxNavigateUp', function(cmdargs)
-          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateUp', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TmuxNavigateUp ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'TmuxNavigatePrevious', function(cmdargs)
           require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigatePrevious', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -242,6 +235,13 @@ pcall(vim.api.nvim_create_user_command, 'TmuxNavigateRight', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-tmux-navigator', 'vim-tmux-navigator'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('TmuxNavigateRight ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TmuxNavigateUp', function(cmdargs)
+          require('packer.load')({'vim-tmux-navigator'}, { cmd = 'TmuxNavigateUp', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-tmux-navigator'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TmuxNavigateUp ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
