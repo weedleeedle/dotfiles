@@ -15,8 +15,8 @@ fi
 
 #exec /usr/bin/virtualenvwrapper.sh
 
-INSTALLED_VERSION=`pacman -Qi linux | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
-RUNNING_VERSION=`uname -r | sed 's/-/./'`
+INSTALLED_VERSION=`pacman -Qi linux-lts | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
+RUNNING_VERSION=`uname -r | sed 's/-lts//'`
 [ $INSTALLED_VERSION != $RUNNING_VERSION ] && echo "New Kernel version available!"
 #Set LS colors
 eval "$(dircolors $DOTFILES/.dircolors)"
