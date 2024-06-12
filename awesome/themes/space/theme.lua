@@ -12,7 +12,7 @@ local themes_path = gfs.get_configuration_dir() .. "themes/"
 
 local theme = {}
 
-theme.font          = "Fira Mono 12"
+theme.font          = "Fira Mono 10"
 --Is this the most bodged thing I've ever done? Proly not. Added a custom font
 --variable just for XFT formatting (for dmenu)
 --theme.xft_font      = "Fira Mono:size=10"
