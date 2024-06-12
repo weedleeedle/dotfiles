@@ -15,6 +15,8 @@ vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, {});
 --Line numbers
 vim.keymap.set('n', '<F2>', vim.fn.ToggleLineNumbers, {});
 
+vim.keymap.set('n', '<C-W><C-]>', '<C-W>v<C-]>', { noremap = true, silent = true })
+
 -- LspAttach autocommand only adds maps after language server
 -- attaches to current buffer.
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -34,8 +36,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>gD', vim.lsp.buf.type_definition, opts)
         -- Rename symbol
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-        -- Code actions
-        vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
         -- get references
         vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
         -- format

@@ -55,11 +55,11 @@ vim.opt.statusline:append { " %l/%L lines, %P " } -- Percentage through file.
 vim.o.laststatus = 2 --When should windows have a status line (2 = always)
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4  -- Number of spaces that a tab counts for. 
-vim.o.softabstop = 4 -- Kinda like tab stop but different
+vim.o.softtabstop = 4 -- Kinda like tab stop but different
 vim.o.shiftwidth = 4 -- Number of spaces to use for auto indent.
 vim.o.autoindent = true -- Copy indent from current line to next line.
 vim.o.textwidth = 80
-vim.o.incsearc = true -- Show live highlighting of current search
+vim.o.incsearch = true -- Show live highlighting of current search
 vim.o.ignorecase = true -- Ignore case when searching
 vim.o.smartcase = true -- Do NOT ignore case if search contains uppercase letters.
 vim.o.scrolloff = 5 -- How much space you should have at the bottom of the screen
