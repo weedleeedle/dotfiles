@@ -69,6 +69,8 @@ xbindkeys
 #Some other applications we want to start
 udiskie --tray &
 xscreensaver &
+#Load nvidia settings
+nvidia-settings --load-config-only &
 #autorandr -c 
 xcompmgr &
 #Start awesome!
