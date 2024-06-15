@@ -8,7 +8,7 @@ nmap(";",":")
 vmap(";",":")
 
 -- Toggle line numbers
-function ToggleLineNumbers()
+function ToggleLineNumbers() 
     if vim.w.lineNumbering == nil then
         vim.w.lineNumbering = "absolute"
     elseif vim.w.lineNumbering == "absolute" then
@@ -85,4 +85,4 @@ require("keybinds")
 require("lsp")
 
 -- THEME
-vim.cmd 'colorscheme enigma'
+vim.cmd 'colorscheme carvedwood'
