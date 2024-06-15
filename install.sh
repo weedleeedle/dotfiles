@@ -14,6 +14,7 @@ ln -sv $SOURCE_DIR/.gtkrc ~/.gtkrc
 ln -sv $SOURCE_DIR/.XCompose ~/.XCompose
 ln -sv $SOURCE_DIR/.xinitrc ~/.xinitrc
 ln -sv $SOURCE_DIR/.scripts ~/.scripts
+ln -sv $SOURCE_DIR/alacritty $CONFIG_DIR/alacritty
 
 # Make dir for rofi theme
 mkdir $CONFIG_DIR/rofi

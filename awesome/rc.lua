@@ -63,7 +63,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/" .. THEME ..
 --pulse.notification_timeout_seconds = 5
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "alacritty"
 keybinds.terminal = terminal
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
