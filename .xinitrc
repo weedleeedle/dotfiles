@@ -62,8 +62,6 @@ xrdb $DOTFILES/Xresources/.Xresources-$THEME
 #START APPLICATIONS
 #Keyboard stuff
 fcitx5 -d
-#Disable caps lock, turn it into a control key, and set left control to compose
-setxkbmap -option ctrl:nocaps -option compose:lctrl
 #Sets media control keys/backlight keys
 xbindkeys
 #Some other applications we want to start
