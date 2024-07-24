@@ -1,3 +1,5 @@
+local map = require("map")
+
 -- Set Map Leader
 vim.g.mapleader = "'"
 
