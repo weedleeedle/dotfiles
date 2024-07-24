@@ -12,3 +12,6 @@ cmus/lib.pl
 cmus/cmusfm.conf
 # Just gonna remove all cmus stuff for now
 cmus/*
+
+# Packer auto-generated stuff
+packer_compiled.lua
