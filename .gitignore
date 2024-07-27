@@ -15,3 +15,6 @@ cmus/*
 
 # Packer auto-generated stuff
 packer_compiled.lua
+
+# Script state stuff
+pass-last-commit

@@ -38,5 +38,7 @@ fi
 #Set LS colors
 eval "$(dircolors $DOTFILES/.dircolors)"
 #echo `python $HOME/Code/linuxSays/script.py -p`
+NUM_COMMITS=$($HOME/.scripts/password-check.sh)
+echo "It has been $NUM_COMMITS commits since you last exported your passwords"
 
 
