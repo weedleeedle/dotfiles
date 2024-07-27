@@ -1,5 +1,3 @@
-local map = require("map")
-
 -- Set Map Leader
 vim.g.mapleader = "'"
 
@@ -8,11 +6,11 @@ nmap(";",":")
 vmap(";",":")
 
 -- Toggle line numbers
-function ToggleLineNumbers() 
+function ToggleLineNumbers()
     if vim.w.lineNumbering == nil then
         vim.w.lineNumbering = "absolute"
     elseif vim.w.lineNumbering == "absolute" then
-        vim.w.lineNumbering = "relative" 
+        vim.w.lineNumbering = "relative"
     elseif vim.w.lineNumbering == "relative" then
         vim.w.lineNumbering = nil
     end
