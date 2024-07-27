@@ -30,7 +30,7 @@ elif [ $LINUX_KERNEL != ${LINUX_KERNEL/rt/} ]; then
     INSTALLED_VERSION=`pacman -Qi linux-rt | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
     RUNNING_VERSION=`uname -r | sed 's/-rt//'`
 # Regular kernel
-else; then
+else
     INSTALLED_VERSION=`pacman -Qi linux | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
     RUNNING_VERSION=`uname -r | sed 's///'`
 fi
