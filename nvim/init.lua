@@ -63,10 +63,11 @@ vim.o.incsearch = true -- Show live highlighting of current search
 vim.o.ignorecase = true -- Ignore case when searching
 vim.o.smartcase = true -- Do NOT ignore case if search contains uppercase letters.
 vim.o.scrolloff = 5 -- How much space you should have at the bottom of the screen
-vim.o.wildmode = full -- Completion basically.
+vim.o.wildmode = "full" -- Completion basically.
 vim.o.wrapmargin = 0 -- When to begin wrapping lines.
 vim.o.colorcolumn = "-10,0" -- Highlight columns relative to text width.
 vim.o.showcmd = true -- Show command in the last line of the screen. No idea what this does.
+vim.o.list = true -- show tabs as characters
 
 -- Disable all autocommenting tbh
 vim.opt.formatoptions:remove { 'c', 'o', 'r' }
