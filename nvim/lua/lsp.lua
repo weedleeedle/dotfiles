@@ -17,7 +17,7 @@ lspconfig.rust_analyzer.setup{
 lspconfig.omnisharp.setup {
     cmd = { "dotnet", "/usr/lib/omnisharp-roslyn/OmniSharp.dll" },
     enable_editorconfig_support = true,
-    --enable_roslyn_analyzers = true,
+    enable_roslyn_analyzers = true,
     organize_imports_on_format = true,
     enable_import_completion = true,
     capabilities = capabilities,

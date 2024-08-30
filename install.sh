@@ -4,17 +4,19 @@ SOURCE_DIR=$(pwd)
 CONFIG_DIR=$HOME/.config
 mkdir -p $CONFIG_DIR
 
-ln -sv $SOURCE_DIR/awesome $CONFIG_DIR
-ln -sv $SOURCE_DIR/nvim $CONFIG_DIR
-ln -sv $SOURCE_DIR/.vimrc ~/.vimrc
-ln -sv $SOURCE_DIR/.bash_alias ~/.bash_alias
-ln -sv $SOURCE_DIR/.bashrc ~/.bashrc
-ln -sv $SOURCE_DIR/.gitconfig ~/.gitconfig
-ln -sv $SOURCE_DIR/.gtkrc ~/.gtkrc
-ln -sv $SOURCE_DIR/.XCompose ~/.XCompose
-ln -sv $SOURCE_DIR/.xinitrc ~/.xinitrc
-ln -sv $SOURCE_DIR/.scripts ~/.scripts
-ln -sv $SOURCE_DIR/alacritty $CONFIG_DIR
+ln -sv -t $CONFIG_DIR $SOURCE_DIR/awesome
+ln -sv -t $CONFIG_DIR $SOURCE_DIR/nvim
+ln -sv -t ~ $SOURCE_DIR/.vimrc
+ln -sv -t ~ $SOURCE_DIR/.bash_alias
+ln -sv -t ~ $SOURCE_DIR/.bashrc
+ln -sv -t ~ $SOURCE_DIR/.gitconfig
+ln -sv -t ~ $SOURCE_DIR/.gtkrc
+ln -sv -t ~ $SOURCE_DIR/.XCompose
+ln -sv -t ~ $SOURCE_DIR/.xinitrc
+ln -sv -t ~ $SOURCE_DIR/.scripts
+ln -sv -t $CONFIG_DIR $SOURCE_DIR/alacritty
+ln -sv -t ~ $SOURCE_DIR/.editorconfig
+ln -sv -t ~ $SOURCE_DIR/.omnisharp
 
 # Make dir for rofi theme
 mkdir $CONFIG_DIR/rofi
