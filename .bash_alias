@@ -3,4 +3,5 @@ alias bandcamp-dl="bandcamp-dl --base-dir=~/music"
 alias ls="ls -lah --color=auto"
 alias ip="ip -color"
 alias scrot="escrotum"
+alias tsm="transmission-remote"
 
