@@ -50,6 +50,8 @@ if [[ -n "`which luarocks 2>/dev/null`" ]]; then
 fi
 #Disable beep
 xset b off
+# Turn off DPMS
+xset -dpms
 #Give clipmenu and other applications access to $DISPLAY
 systemctl --user import-environment DISPLAY
 # We have to start clipmenu manually (since it requires X)
