@@ -17,8 +17,8 @@ require('lualine').setup {
         lualine_x = {
             -- Show "recording @.."
             {
-                require("noice").api.statusline.mode.get,
-                cond = require("noice").api.statusline.mode.has,
+                -- require("noice").api.statusline.mode.get,
+                -- cond = require("noice").api.statusline.mode.has,
             }
         }
     }
@@ -50,6 +50,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     }
 })
+--[[
 require("noice").setup({
     lsp = {
         -- override markdown rendering so that **cmp** and other plugins use
@@ -67,4 +68,4 @@ require("noice").setup({
         inc_rename = false,
         lsp_doc_border = false,
     },
-})
+})--]]

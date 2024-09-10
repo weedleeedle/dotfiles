@@ -90,6 +90,7 @@ return require('packer').startup(function(use)
             { "", "<c-l> <cmd>TmuxNavigateRight<cr>" },
         },
     }
+    --[[
     use {
         "folke/noice.nvim",
         requires = {
@@ -97,6 +98,7 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-notify",
         }
     }
+    --]]
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- (bootstrap)
