@@ -1,0 +1,15 @@
+[Unit]
+Description=Resilio Sync service
+
+[Service]
+Type=forking
+PIDFile=/home/viperzer0/.config/rslsync/rslsync.pid
+ExecStart=/usr/bin/rslsync --config /home/viperzer0/.config/rslsync/rslsync.conf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
+

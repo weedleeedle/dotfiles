@@ -1,0 +1,9 @@
+[Unit]
+Description=Update Linux tweet database
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'python $HOME/Code/linuxSays/script.py -u'
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

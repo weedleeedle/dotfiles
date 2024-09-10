@@ -1,0 +1,12 @@
+[Unit]
+Description=Redshift
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/redshift -c /home/viperzer0/.config/redshift.conf
+
+[Install]
+WantedBy=default.target
+
+

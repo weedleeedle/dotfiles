@@ -1,0 +1,10 @@
+[Unit]
+Description=Check restic repository for errors
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /home/viperzer0/.scripts/check-backup.sh
+
+[Install]
+WantedBy=multi-user.target
