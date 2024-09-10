@@ -11,6 +11,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=nvim
 
 export CM_LAUNCHER=rofi
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #export restic env variables
 #source <(sudo cat /etc/restic-env)
 

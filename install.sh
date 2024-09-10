@@ -17,6 +17,7 @@ ln -sv -t ~ $SOURCE_DIR/.scripts
 ln -sv -t $CONFIG_DIR $SOURCE_DIR/alacritty
 ln -sv -t ~ $SOURCE_DIR/.editorconfig
 ln -sv -t ~ $SOURCE_DIR/.omnisharp
+ln -svrn user-systemd-services $CONFIG_DIR/systemd/user
 
 # Make dir for rofi theme
 mkdir $CONFIG_DIR/rofi
