@@ -6,6 +6,7 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+    templateDir = /home/viperzer0/.dotfiles/git-template/
 [color]
 	ui = auto
 [filter "lfs"]

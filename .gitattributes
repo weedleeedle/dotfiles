@@ -53,4 +53,5 @@
 *.editorconfig filter=lfs diff=lfs merge=lfs -text
 *.service filter=lfs diff=lfs merge=lfs -text
 *.timer filter=lfs diff=lfs merge=lfs -text
+/git-template/hooks/pre-commit filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
