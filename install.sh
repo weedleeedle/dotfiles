@@ -9,6 +9,7 @@ ln -sv -t $CONFIG_DIR $SOURCE_DIR/nvim
 ln -sv -t ~ $SOURCE_DIR/.vimrc
 ln -sv -t ~ $SOURCE_DIR/.bash_alias
 ln -sv -t ~ $SOURCE_DIR/.bashrc
+ln -sv -t ~ $SOURCE_DIR/.xprofile
 ln -sv -t ~ $SOURCE_DIR/.gitconfig
 ln -sv -t ~ $SOURCE_DIR/.gtkrc
 ln -sv -t ~ $SOURCE_DIR/.XCompose
