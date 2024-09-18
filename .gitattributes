@@ -55,4 +55,5 @@
 *.timer filter=lfs diff=lfs merge=lfs -text
 /git-template/hooks/pre-commit filter=lfs diff=lfs merge=lfs -text
 *.xprofile filter=lfs diff=lfs merge=lfs -text
+*.Xresources-matte-pride filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff

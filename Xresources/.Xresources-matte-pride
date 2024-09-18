@@ -1,0 +1,14 @@
+XTerm*faceName:		xft:Fira Code:size=10
+*background:	#101010
+*foreground:	#f89341
+URxvt.depth:    32
+URxvt.scrollBar:	false
+URxvt.geometry: 1x5000
+
+! Fix backspace character
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+! Fix Alt+ combinations
+XTerm.vt100.metaSendsEscape: true
+XTerm*selectToClipboard: true
+

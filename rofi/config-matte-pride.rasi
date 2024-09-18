@@ -1,0 +1,40 @@
+* {
+	background-color: #101010C0;
+	text-color: #f89341;
+	font:	"Fira Mono 9";
+	border-color: #f89341;
+}
+
+window {
+    transparency: "real";
+	background-color: @background-color;
+}
+scrollbar {
+	handle-color: @text-color;
+}
+
+element.normal.normal
+{
+	background-color:@background-color;
+	text-color: @text-color;
+}
+element.alternate.normal
+{
+	background-color: @background-color;
+	text-color: @text-color;
+}
+element.selected.normal
+{
+	background-color: #302020;
+	text-color: @text-color;
+}
+
+entrybox.normal.active
+{
+	text-color: @text-color;
+}
+/*
+element-text
+{
+	highlight:	underline;
+}*/

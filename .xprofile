@@ -1,5 +1,5 @@
 #!/bin/sh
-export THEME="space"
+export THEME="matte-pride"
 
 #config directory
 export XDG_CONFIG_HOME="/home/viperzer0/.config"
