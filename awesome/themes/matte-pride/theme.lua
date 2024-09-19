@@ -110,22 +110,22 @@ theme.titlebar_maximized_button_normal_active = themes_path.."matte-pride/gtitle
 theme.titlebar_maximized_button_focus_active  = themes_path.."matte-pride/gtitlebar/maximized_focus_active.png"
 -- theme.wallpaper = themes_path.."space/background.jpg"
 theme.background_color = "#3d3d3d"
-theme.background_colors = {};
-theme.background_colors[1] = {bg_normal = "#ed8e89", bg_focus = "#3d3d3d"}
-theme.background_colors[2] = {bg_normal = "#f7b685", bg_focus = "#f7ff85"}
-theme.background_colors[3] = {bg_normal = "#f3eba5", bg_focus = "#ffffff"}
-theme.background_colors[4] = {bg_normal = "#94c691", bg_focus = "#ffffff"}
-theme.background_colors[5] = {bg_normal = "#9bd6d9", bg_focus = "#ffffff"}
-theme.background_colors[6] = {bg_normal = "#b4a8e0", bg_focus = "#ffffff"}
+theme.highlight_colors = {};
+theme.highlight_colors[1] = {bg_normal = "#ed8e89", bg_focus = "#f4b6b3"}
+theme.highlight_colors[2] = {bg_normal = "#f7b685", bg_focus = "#fad4b7"}
+theme.highlight_colors[3] = {bg_normal = "#f3eba5", bg_focus = "#f9f5d2"}
+theme.highlight_colors[4] = {bg_normal = "#94c691", bg_focus = "#b4d7b2"}
+theme.highlight_colors[5] = {bg_normal = "#9bd6d9", bg_focus = "#c0e5e7"}
+theme.highlight_colors[6] = {bg_normal = "#b4a8e0", bg_focus = "#d5ceee"}
 theme.background_bar_width = dpi(50)
 theme.background_bar_position = 0.7
 
 theme.wallpaper = function (screen)
     local geometry, context = gears.wallpaper.prepare_context(screen)
     local bar_width = theme.background_bar_width
-    local bar_surface = cairo.ImageSurface.create(cairo.Format.ARGB32, bar_width * #theme.background_colors, geometry.height*2)
+    local bar_surface = cairo.ImageSurface.create(cairo.Format.ARGB32, bar_width * #theme.highlight_colors, geometry.height*2)
     local bar_context = cairo.Context(bar_surface)
-    for index, color in pairs(theme.background_colors) do
+    for index, color in pairs(theme.highlight_colors) do
         bar_context:set_source(gears.color(color.bg_normal))
         bar_context:rectangle((index - 1) * bar_width, 0, bar_width, geometry.height*2)
         bar_context:fill()
@@ -176,8 +176,8 @@ theme.icon_theme = nil
 
 tag.connect_signal("property::selected", function(t)
     if t.selected then
-        local normal = theme.background_colors[t.index].bg_normal
-        local focus = theme.background_colors[t.index].bg_focus
+        local normal = theme.highlight_colors[t.index].bg_normal
+        local focus = theme.highlight_colors[t.index].bg_focus
         theme.bg_normal = normal
         theme.bg_focus = focus
         theme.border_normal = normal

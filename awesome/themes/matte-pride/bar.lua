@@ -45,12 +45,12 @@ return function(s)
             id = "custom_background",
             widget = wibox.container.background,
             create_callback = function(self, _, index, _)
-                local color = beautiful.background_colors[index].bg_normal
+                local color = beautiful.highlight_colors[index].bg_normal
                 self:get_children_by_id('custom_background')[1].bg = color
             end,
             update_callback = function(self, t, index, _)
-                local bg_normal = beautiful.background_colors[index].bg_normal
-                local bg_focus = beautiful.background_colors[index].bg_focus
+                local bg_normal = beautiful.highlight_colors[index].bg_normal
+                local bg_focus = beautiful.highlight_colors[index].bg_focus
                 if t.selected then
                     self:get_children_by_id('custom_background')[1].bg = bg_focus
                 else
@@ -81,7 +81,7 @@ return function(s)
         -- t.screen == s allows us to limit the color change to the screen the
         -- tag is on
         if t.selected and t.screen == s then
-            s.mywibox.bg = beautiful.background_colors[t.index].bg_normal
+            s.mywibox.bg = beautiful.highlight_colors[t.index].bg_normal
         end
     end)
 
