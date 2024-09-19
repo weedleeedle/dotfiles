@@ -28,10 +28,10 @@ return function(s)
         widget_template = {
             {
                 {
-                    --[[{
+                    {
                         id     = 'icon_role',
                         widget = wibox.widget.imagebox,
-                    },--]]
+                    },
                     {
                         id     = 'text_role',
                         widget = wibox.widget.textbox,

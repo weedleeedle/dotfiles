@@ -73,7 +73,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path.."matte-pride/gsubmenu.png"
+theme.menu_submenu_icon = themes_path.."matte-pride/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
@@ -83,33 +83,38 @@ theme.menu_width  = dpi(100)
 --theme.bg_widget = "#cc0000"
 
 -- Define the image to load
-theme.titlebar_close_button_normal = themes_path.."matte-pride/gtitlebar/close_normal.png"
-theme.titlebar_close_button_focus  = themes_path.."matte-pride/gtitlebar/close_focus.png"
+-- I actually don't like seeing these either so.
+--[[
+theme.titlebar_close_button_normal = themes_path.."matte-pride/titlebar/close_normal.png"
+theme.titlebar_close_button_focus  = themes_path.."matte-pride/titlebar/close_focus.png"
 
-theme.titlebar_minimize_button_normal = themes_path.."matte-pride/gtitlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus  = themes_path.."matte-pride/gtitlebar/minimize_focus.png"
+theme.titlebar_minimize_button_normal = themes_path.."matte-pride/titlebar/minimize_normal.png"
+theme.titlebar_minimize_button_focus  = themes_path.."matte-pride/titlebar/minimize_focus.png"
 
-theme.titlebar_ontop_button_normal_inactive = themes_path.."matte-pride/gtitlebar/ontop_normal_inactive.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path.."matte-pride/gtitlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_active = themes_path.."matte-pride/gtitlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_active  = themes_path.."matte-pride/gtitlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_inactive = themes_path.."matte-pride/titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_inactive  = themes_path.."matte-pride/titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_active = themes_path.."matte-pride/titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_active  = themes_path.."matte-pride/titlebar/ontop_focus_active.png"
 
-theme.titlebar_sticky_button_normal_inactive = themes_path.."matte-pride/gtitlebar/sticky_normal_inactive.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path.."matte-pride/gtitlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_active = themes_path.."matte-pride/gtitlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_active  = themes_path.."matte-pride/gtitlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_inactive = themes_path.."matte-pride/titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_inactive  = themes_path.."matte-pride/titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_active = themes_path.."matte-pride/titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_active  = themes_path.."matte-pride/titlebar/sticky_focus_active.png"
 
-theme.titlebar_floating_button_normal_inactive = themes_path.."matte-pride/gtitlebar/floating_normal_inactive.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path.."matte-pride/gtitlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_active = themes_path.."matte-pride/gtitlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_active  = themes_path.."matte-pride/gtitlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_inactive = themes_path.."matte-pride/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_inactive  = themes_path.."matte-pride/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_active = themes_path.."matte-pride/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_active  = themes_path.."matte-pride/titlebar/floating_focus_active.png"
 
-theme.titlebar_maximized_button_normal_inactive = themes_path.."matte-pride/gtitlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path.."matte-pride/gtitlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_active = themes_path.."matte-pride/gtitlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_active  = themes_path.."matte-pride/gtitlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_inactive = themes_path.."matte-pride/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_inactive  = themes_path.."matte-pride/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_active = themes_path.."matte-pride/titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_active  = themes_path.."matte-pride/titlebar/maximized_focus_active.png"
+--]]
+
 -- theme.wallpaper = themes_path.."space/background.jpg"
-theme.background_color = "#3d3d3d"
+theme.wallpaper_color_top = "#3d3d3d"
+theme.wallpaper_color_bottom = "#202020"
 theme.highlight_colors = {};
 theme.highlight_colors[1] = {bg_normal = "#ed8e89", bg_focus = "#f4b6b3"}
 theme.highlight_colors[2] = {bg_normal = "#f7b685", bg_focus = "#fad4b7"}
@@ -130,7 +135,7 @@ theme.wallpaper = function (screen)
         bar_context:rectangle((index - 1) * bar_width, 0, bar_width, geometry.height*2)
         bar_context:fill()
     end
-    context:set_source(gears.color({type="linear", from = {0,0}, to = {0, geometry.height}, stops = { { 0, theme.background_color }, { 1, "#202020" } } }))
+    context:set_source(gears.color({type="linear", from = {0,0}, to = {0, geometry.height}, stops = { { 0, theme.wallpaper_color_top }, { 1, theme.wallpaper_color_bottom } } }))
     context:rectangle(0, 0, geometry.width, geometry.height)
     context:fill()
     context:set_source_surface(bar_surface,0,0)
@@ -143,22 +148,25 @@ theme.wallpaper = function (screen)
 end
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = themes_path.."matte-pride/glayouts/fairhw.png"
-theme.layout_fairv = themes_path.."matte-pride/glayouts/fairvw.png"
-theme.layout_floating  = themes_path.."matte-pride/glayouts/floatingw.png"
-theme.layout_magnifier = themes_path.."matte-pride/glayouts/magnifierw.png"
-theme.layout_max = themes_path.."matte-pride/glayouts/maxw.png"
-theme.layout_fullscreen = themes_path.."matte-pride/glayouts/fullscreenw.png"
-theme.layout_tilebottom = themes_path.."matte-pride/glayouts/tilebottomw.png"
-theme.layout_tileleft   = themes_path.."matte-pride/glayouts/tileleftw.png"
-theme.layout_tile = themes_path.."matte-pride/glayouts/tilew.png"
-theme.layout_tiletop = themes_path.."matte-pride/glayouts/tiletopw.png"
-theme.layout_spiral  = themes_path.."matte-pride/glayouts/spiralw.png"
-theme.layout_dwindle = themes_path.."matte-pride/glayouts/dwindlew.png"
-theme.layout_cornernw = themes_path.."matte-pride/glayouts/cornernww.png"
-theme.layout_cornerne = themes_path.."matte-pride/glayouts/cornernew.png"
-theme.layout_cornersw = themes_path.."matte-pride/glayouts/cornersww.png"
-theme.layout_cornerse = themes_path.."matte-pride/glayouts/cornersew.png"
+-- Except I don't like the layout icons, i prefer the text.
+--[[
+theme.layout_fairh = themes_path.."matte-pride/layouts/fairhw.png"
+theme.layout_fairv = themes_path.."matte-pride/layouts/fairvw.png"
+theme.layout_floating  = themes_path.."matte-pride/layouts/floatingw.png"
+theme.layout_magnifier = themes_path.."matte-pride/layouts/magnifierw.png"
+theme.layout_max = themes_path.."matte-pride/layouts/maxw.png"
+theme.layout_fullscreen = themes_path.."matte-pride/layouts/fullscreenw.png"
+theme.layout_tilebottom = themes_path.."matte-pride/layouts/tilebottomw.png"
+theme.layout_tileleft   = themes_path.."matte-pride/layouts/tileleftw.png"
+theme.layout_tile = themes_path.."matte-pride/layouts/tilew.png"
+theme.layout_tiletop = themes_path.."matte-pride/layouts/tiletopw.png"
+theme.layout_spiral  = themes_path.."matte-pride/layouts/spiralw.png"
+theme.layout_dwindle = themes_path.."matte-pride/layouts/dwindlew.png"
+theme.layout_cornernw = themes_path.."matte-pride/layouts/cornernww.png"
+theme.layout_cornerne = themes_path.."matte-pride/layouts/cornernew.png"
+theme.layout_cornersw = themes_path.."matte-pride/layouts/cornersww.png"
+theme.layout_cornerse = themes_path.."matte-pride/layouts/cornersew.png"
+--]]
 
 --notification
 theme.notification_icon_size=50
