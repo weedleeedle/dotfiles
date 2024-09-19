@@ -72,8 +72,9 @@ return function(s)
 
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s,width = "95%", height= dpi(25),
-        shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,10) end
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(30),
+        shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,beautiful.border_radius) end,
+        margins = { bottom = beautiful.useless_gap }
     })
 
     -- Recolor title bar anytime we change tags
@@ -92,21 +93,21 @@ return function(s)
         top=dpi(10)})]]--
     -- Add widgets to the wibox
     s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            --mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            --power, 
-            --pulse,
-            s.systray,
-            s.textclock,
-            wibox.container.margin(s.mylayoutbox,0,10,0,0),
-        },
+            layout = wibox.layout.align.horizontal,
+            { -- Left widgets
+                layout = wibox.layout.fixed.horizontal,
+                --mylauncher,
+                s.mytaglist,
+                s.mypromptbox,
+            },
+            s.mytasklist, -- Middle widget
+            { -- Right widgets
+                layout = wibox.layout.fixed.horizontal,
+                --power, 
+                --pulse,
+                s.systray,
+                s.textclock,
+                wibox.container.margin(s.mylayoutbox,0,10,0,0),
+            },
     }
 end

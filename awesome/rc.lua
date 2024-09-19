@@ -14,7 +14,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 --ADDING WIDGETS
-local vicious = require("vicious")
+--local vicious = require("vicious")
 local default_bar = require("default_bar")
 --local power = require("power_widget")
 --power.gui_client = "xfce4-power-manager-settings"
@@ -426,7 +426,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
      }
     },
 

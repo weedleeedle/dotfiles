@@ -32,6 +32,7 @@ theme.fg_minimize   = "#f99442"
 
 theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(2)
+theme.border_radius = dpi(10)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
@@ -182,6 +183,7 @@ theme.bar = bar
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
+-- change theme colors when tag changes
 tag.connect_signal("property::selected", function(t)
     if t.selected then
         local normal = theme.highlight_colors[t.index].bg_normal
@@ -191,6 +193,13 @@ tag.connect_signal("property::selected", function(t)
         theme.border_normal = normal
         theme.border_focus = focus
         theme.bg_systray = normal
+    end
+end)
+
+client.connect_signal("manage", function(c)
+    c.shape = function(cr, w, h)
+        --gears.shape.arrow(cr, w, h)
+        gears.shape.rounded_rect(cr, w, h, theme.border_radius)
     end
 end)
 
