@@ -15,6 +15,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 --ADDING WIDGETS
 local vicious = require("vicious")
+local default_bar = require("default_bar")
 --local power = require("power_widget")
 --power.gui_client = "xfce4-power-manager-settings"
 --power.critical_percentage = 10
@@ -120,10 +121,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
-
 local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
@@ -145,7 +142,14 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 
 --Calls the wibar function for every screen created.
---awful.screen.connect_for_each_screen(bar)
+
+awful.screen.connect_for_each_screen(function (s)
+    if beautiful.bar then
+        beautiful.bar(s)
+    else
+        default_bar(s)
+    end
+end)
 -- }}}
 
 -- {{{ Mouse bindings

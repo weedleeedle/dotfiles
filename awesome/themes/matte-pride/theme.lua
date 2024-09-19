@@ -19,7 +19,7 @@ theme.font          = "Fira Mono 10"
 --variable just for XFT formatting (for dmenu)
 --theme.xft_font      = "Fira Mono:size=10"
 
-theme.bg_normal     = "#101010"
+theme.bg_normal     = "#3d3d3d"
 theme.bg_focus      = "#303030"
 theme.bg_urgent     = "#f89341"
 theme.bg_minimize   = "#000000"
@@ -31,7 +31,7 @@ theme.fg_urgent     = "#000000"
 theme.fg_minimize   = "#f99442"
 
 theme.useless_gap   = dpi(10)
-theme.border_width  = dpi(0)
+theme.border_width  = dpi(2)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
@@ -51,7 +51,7 @@ theme.border_marked = "#91231c"
 
 -- Hotkey/"help" window theming
 theme.hotkeys_modifiers_fg = theme.fg_normal
-theme.hotkeys_bg = "#212121"
+theme.hotkeys_bg = theme.bg_normal
 theme.hotkeys_border_width = dpi(1)
 theme.hotkeys_border_color = theme.fg_normal
 
@@ -109,9 +109,9 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."matte-pride/gtit
 theme.titlebar_maximized_button_normal_active = themes_path.."matte-pride/gtitlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."matte-pride/gtitlebar/maximized_focus_active.png"
 -- theme.wallpaper = themes_path.."space/background.jpg"
-theme.background_color = "#101010"
+theme.background_color = "#3d3d3d"
 theme.background_colors = {};
-theme.background_colors[1] = {bg_normal = "#ed8e89", bg_focus = "#ff7e79"}
+theme.background_colors[1] = {bg_normal = "#ed8e89", bg_focus = "#3d3d3d"}
 theme.background_colors[2] = {bg_normal = "#f7b685", bg_focus = "#f7ff85"}
 theme.background_colors[3] = {bg_normal = "#f3eba5", bg_focus = "#ffffff"}
 theme.background_colors[4] = {bg_normal = "#94c691", bg_focus = "#ffffff"}
@@ -130,7 +130,7 @@ theme.wallpaper = function (screen)
         bar_context:rectangle((index - 1) * bar_width, 0, bar_width, geometry.height*2)
         bar_context:fill()
     end
-    context:set_source(gears.color("#101010"))
+    context:set_source(gears.color({type="linear", from = {0,0}, to = {0, geometry.height}, stops = { { 0, theme.background_color }, { 1, "#202020" } } }))
     context:rectangle(0, 0, geometry.width, geometry.height)
     context:fill()
     context:set_source_surface(bar_surface,0,0)
@@ -167,18 +167,24 @@ theme.awesome_icon = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus
 )
 
+--export bar widget so rc.lua can connect.
+theme.bar = bar
+
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
 tag.connect_signal("property::selected", function(t)
     if t.selected then
-        theme.bg_normal = theme.background_colors[t.index].bg_normal
-        theme.bg_focus = theme.background_colors[t.index].bg_focus
+        local normal = theme.background_colors[t.index].bg_normal
+        local focus = theme.background_colors[t.index].bg_focus
+        theme.bg_normal = normal
+        theme.bg_focus = focus
+        theme.border_normal = normal
+        theme.border_focus = focus
+        theme.bg_systray = normal
     end
 end)
-
-awful.screen.connect_for_each_screen(bar)
 
 return theme
 
