@@ -64,7 +64,13 @@ return function(s)
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        buttons = tasklist_buttons,
+        update_callback = function(self, client, index, clients)
+            local normal = beautiful.highlight_colors[client.first_tag].bg_normal
+            local focus = beautiful.highlight_colors[client.first_tag].bg_focus
+            naughty.notification { text = "Agh" }
+        end
+
     }
 
     s.systray = wibox.widget.systray()

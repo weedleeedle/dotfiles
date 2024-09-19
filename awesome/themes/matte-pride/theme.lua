@@ -1,5 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
+local naughty = require("naughty")
 local cairo = require("lgi").cairo
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -184,22 +185,46 @@ theme.bar = bar
 theme.icon_theme = nil
 
 -- change theme colors when tag changes
+--[[
 tag.connect_signal("property::selected", function(t)
     if t.selected then
         local normal = theme.highlight_colors[t.index].bg_normal
         local focus = theme.highlight_colors[t.index].bg_focus
-        theme.bg_normal = normal
-        theme.bg_focus = focus
-        theme.border_normal = normal
-        theme.border_focus = focus
-        theme.bg_systray = normal
+        for k, client in pairs(t:clients()) do
+            if client.active then
+                client.border_color = focus
+            else
+                client.border_color = normal
+            end
+        end
     end
 end)
+--]]
 
 client.connect_signal("manage", function(c)
     c.shape = function(cr, w, h)
         --gears.shape.arrow(cr, w, h)
         gears.shape.rounded_rect(cr, w, h, theme.border_radius)
+    end
+end)
+
+client.connect_signal("focus", function(c)
+    local tag_index = c.first_tag
+    local color = theme.highlight_colors[tag_index].bg_focus
+    c.border_color = color
+    local titlebar = awful.titlebar(c)
+    titlebar.bg = color
+end)
+
+client.connect_signal("unfocus", function(c)
+    local tag = c.first_tag
+    -- Apparently tag can be nil when moving clients ig
+    if (tag) then
+        local tag_index = tag.index
+        local color = theme.highlight_colors[tag_index].bg_normal
+        c.border_color = color
+        local titlebar = awful.titlebar(c)
+        titlebar.bg = color
     end
 end)
 
