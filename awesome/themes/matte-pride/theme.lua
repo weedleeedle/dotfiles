@@ -209,7 +209,7 @@ client.connect_signal("manage", function(c)
 end)
 
 client.connect_signal("focus", function(c)
-    local tag_index = c.first_tag
+    local tag_index = c.first_tag.index
     local color = theme.highlight_colors[tag_index].bg_focus
     c.border_color = color
     local titlebar = awful.titlebar(c)
