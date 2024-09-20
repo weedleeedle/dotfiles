@@ -6,6 +6,44 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+local taglist_buttons = gears.table.join(
+                    awful.button({ }, 1, function(t) t:view_only() end),
+                    awful.button({ modkey }, 1, function(t)
+                                              if client.focus then
+                                                  client.focus:move_to_tag(t)
+                                              end
+                                          end),
+                    awful.button({ }, 3, awful.tag.viewtoggle),
+                    awful.button({ modkey }, 3, function(t)
+                                              if client.focus then
+                                                  client.focus:toggle_tag(t)
+                                              end
+                                          end),
+                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                )
+
+local tasklist_buttons = gears.table.join(
+                     awful.button({ }, 1, function (c)
+                                              if c == client.focus then
+                                                  c.minimized = true
+                                              else
+                                                  c:emit_signal(
+                                                      "request::activate",
+                                                      "tasklist",
+                                                      {raise = true}
+                                                  )
+                                              end
+                                          end),
+                     awful.button({ }, 3, function()
+                                              awful.menu.client_list({ theme = { width = 250 } })
+                                          end),
+                     awful.button({ }, 4, function ()
+                                              awful.client.focus.byidx(1)
+                                          end),
+                     awful.button({ }, 5, function ()
+                                              awful.client.focus.byidx(0)
+                                          end))
 -- WIBAR
 return function(s)
     -- Each screen has its own tag table.
@@ -65,17 +103,50 @@ return function(s)
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
-        update_callback = function(self, client, index, clients)
-            local normal = beautiful.highlight_colors[client.first_tag].bg_normal
-            local focus = beautiful.highlight_colors[client.first_tag].bg_focus
-            naughty.notification { text = "Agh" }
-        end
-
+        widget_template = {
+            {
+                {
+                    {
+                        {
+                            id = "icon_role",
+                            widget = wibox.widget.imagebox,
+                        },
+                        margins = 2,
+                        widget = wibox.container.margin,
+                    },
+                    {
+                        id = "text_role",
+                        widget = wibox.widget.textbox,
+                    },
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                left = 10,
+                right = 10,
+                widget = wibox.container.margin,
+            },
+            id = "custom_background",
+            widget = wibox.container.background,
+            --[[
+            update_callback = function(self, client, index, clients)
+                naughty.notification { text = "Agh" }
+                naughty.notification { text = tostring(self:get_children_by_id('custom_background')) }
+                naughty.notification { text = client.name }
+                naughty.notification { text = client.first_tag.index }
+                local tag_index = client.first_tag.index
+                local bg_normal = beautiful.hightlight_colors[tag_index].bg_normal
+                local bg_focus = beautiful.hightlight_colors[tag_index].bg_focus
+                if client.active then
+                    self:get_children_by_id('custom_background')[1].bg = bg_focus
+                else
+                    self:get_children_by_id('custom_background')[1].bg = bg_normal
+                end
+            end
+            --]]
+        }
     }
 
     s.systray = wibox.widget.systray()
     s.textclock = wibox.widget.textclock()
-
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(30),
@@ -89,6 +160,9 @@ return function(s)
         -- tag is on
         if t.selected and t.screen == s then
             s.mywibox.bg = beautiful.highlight_colors[t.index].bg_normal
+            beautiful.bg_systray = beautiful.highlight_colors[t.index].bg_normal
+            --beautiful.tasklist_bg_normal = beautiful.highlight_colors[t.index].bg_normal
+            --beautiful.tasklist_bg_focus = beautiful.highlight_colors[t.index].bg_focus
         end
     end)
 
@@ -106,7 +180,12 @@ return function(s)
                 s.mytaglist,
                 s.mypromptbox,
             },
-            s.mytasklist, -- Middle widget
+            {
+                s.mytasklist, -- Middle widget
+                widget = wibox.container.margin,
+                left = 5,
+                right = 5
+            },
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 --power, 

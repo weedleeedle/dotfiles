@@ -24,7 +24,6 @@ theme.bg_normal     = "#3d3d3d"
 theme.bg_focus      = "#303030"
 theme.bg_urgent     = "#f89341"
 theme.bg_minimize   = "#000000"
-theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#000000"
 theme.fg_focus      = "#000000"
@@ -71,6 +70,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
+theme.notification_border_width = theme.border_width
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -208,6 +208,7 @@ client.connect_signal("manage", function(c)
     end
 end)
 
+-- Set colors when window is focused or unfocused
 client.connect_signal("focus", function(c)
     local tag_index = c.first_tag.index
     local color = theme.highlight_colors[tag_index].bg_focus
@@ -226,6 +227,15 @@ client.connect_signal("unfocus", function(c)
         local titlebar = awful.titlebar(c)
         titlebar.bg = color
     end
+end)
+
+-- Set notification color to whatever tag/screen color is
+naughty.connect_signal("added", function(notification)
+    local tag_index = notification.screen.selected_tag.index
+    local normal = theme.highlight_colors[tag_index].bg_normal
+    local focus = theme.highlight_colors[tag_index].bg_focus
+    notification.bg = focus
+    notification.border_color = normal
 end)
 
 return theme
