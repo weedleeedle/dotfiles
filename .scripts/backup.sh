@@ -4,7 +4,7 @@
 # and then emails $NOTIFY_EMAIL_ADDRESS with the results of the backup.
 # It excludes anything matching the patterns found in
 # $HOME/.dotfiles/backup-exclude and any folders marked as caches.
-command="restic backup --verbose --exclude-caches=true --exclude-file $HOME/.dotfiles/backup-exclude $HOME 2>&1"
+command="restic backup --verbose --exclude-caches=true --exclude-file $HOME/.dotfiles/backup-exclude $HOME /etc 2>&1"
 output=$(eval "${command}")
 result=$?
 
