@@ -32,7 +32,7 @@ elif [ $LINUX_KERNEL != ${LINUX_KERNEL/rt/} ]; then
 # Regular kernel
 else
     INSTALLED_VERSION=`pacman -Qi linux | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
-    RUNNING_VERSION=`uname -r | sed 's///'`
+    RUNNING_VERSION=`uname -r | sed -r 's/([0-9]+\.[0-9]+\.[0-9]+)-(.*)/\1\.\2/'`
 fi
 [ $INSTALLED_VERSION != $RUNNING_VERSION ] && echo "New Kernel version available!"
 #Set LS colors
