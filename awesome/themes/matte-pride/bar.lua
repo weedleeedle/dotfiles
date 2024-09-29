@@ -79,28 +79,30 @@ return function(s)
             end
         }
     }
-
+    s.textclock = wibox.widget.textclock()
     s.systray = wibox.widget.systray()
-    s.textclock = wibox.widget {
+    s.musicwidget = wibox.widget {
         font = "Fira Mono 12",
         widget = wibox.widget.textbox
     }
     --vicious.cache(vicious.contrib.cmus_all)
     local CMUS_SOCKET = os.getenv("XDG_RUNTIME_DIR") .. "/cmus-socket"
-    vicious.register(s.textclock, vicious.widgets.cmus,
+    vicious.register(s.musicwidget, vicious.widgets.cmus,
                 function (widget, args)
                     if args["{status}"] ~= "playing" then
-                        return os.date("%a %b %d %H:%M")
+                        return vicious.call_async(
+                            vicious.widgets.weather,
+                            "${sky}, ${tempf}°F, ${humid}% humidity",
+                            "KRNO",
+                            function (format)
+                                widget.text = format
+                            end)
                     else
                         return ("%s - %s"):format(args["{artist}"], args["{title}"])
                     end
                 end,
                 13, {CMUS_SOCKET})
-    s.weatherwidget = wibox.widget {
-        widget = wibox.widget.textbox
-    }
-    --vicious.cache(vicious.widgets.weather)
-    vicious.register(s.weatherwidget, vicious.widgets.weather, "${sky}, ${tempf}°F, ${humid}% humidity", 3600, "KRNO")
+
     s.memwidget = wibox.widget {
         foot = "Fira Mono 10",
         widget = wibox.widget.textbox
@@ -146,15 +148,13 @@ return function(s)
                 s.mypromptbox,
             },
             {
-                s.textclock,
+                s.musicwidget,
                 widget = wibox.container.place,
                 valign = "center",
                 halign = "center",
             },
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                --power, 
-                --pulse,
                 s.systray,
                 {
                     {
@@ -167,7 +167,7 @@ return function(s)
                     widget = wibox.container.constraint,
                 },
                 {
-                    s.weatherwidget,
+                    s.textclock,
                     left = 0,
                     right = 0,
                     widget = wibox.container.margin,
