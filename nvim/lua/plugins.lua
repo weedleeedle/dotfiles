@@ -90,6 +90,9 @@ return require('packer').startup(function(use)
             { "", "<c-l> <cmd>TmuxNavigateRight<cr>" },
         },
     }
+    use {
+        "mechatroner/rainbow_csv",
+    }
     --[[
     use {
         "folke/noice.nvim",
