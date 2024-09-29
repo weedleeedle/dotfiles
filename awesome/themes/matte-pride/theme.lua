@@ -15,7 +15,7 @@ math.randomseed(os.time())
 
 local theme = {}
 
-theme.font          = "Fira Mono 10"
+theme.font          = "Fira Mono 12"
 --Is this the most bodged thing I've ever done? Proly not. Added a custom font
 --variable just for XFT formatting (for dmenu)
 --theme.xft_font      = "Fira Mono:size=10"

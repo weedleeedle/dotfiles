@@ -98,53 +98,6 @@ return function(s)
         }
     }
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons,
-        widget_template = {
-            {
-                {
-                    {
-                        {
-                            id = "icon_role",
-                            widget = wibox.widget.imagebox,
-                        },
-                        margins = 2,
-                        widget = wibox.container.margin,
-                    },
-                    {
-                        id = "text_role",
-                        widget = wibox.widget.textbox,
-                    },
-                    layout = wibox.layout.fixed.horizontal,
-                },
-                left = 10,
-                right = 10,
-                widget = wibox.container.margin,
-            },
-            id = "custom_background",
-            widget = wibox.container.background,
-            --[[
-            update_callback = function(self, client, index, clients)
-                naughty.notification { text = "Agh" }
-                naughty.notification { text = tostring(self:get_children_by_id('custom_background')) }
-                naughty.notification { text = client.name }
-                naughty.notification { text = client.first_tag.index }
-                local tag_index = client.first_tag.index
-                local bg_normal = beautiful.hightlight_colors[tag_index].bg_normal
-                local bg_focus = beautiful.hightlight_colors[tag_index].bg_focus
-                if client.active then
-                    self:get_children_by_id('custom_background')[1].bg = bg_focus
-                else
-                    self:get_children_by_id('custom_background')[1].bg = bg_normal
-                end
-            end
-            --]]
-        }
-    }
-
     s.systray = wibox.widget.systray()
     s.textclock = wibox.widget.textclock()
 
@@ -181,17 +134,17 @@ return function(s)
                 s.mypromptbox,
             },
             {
-                s.mytasklist, -- Middle widget
-                widget = wibox.container.margin,
-                left = 5,
-                right = 5
+                --s.mytasklist, -- Middle widget
+                s.textclock,
+                widget = wibox.container.place,
+                valign = "center",
+                halign = "center",
             },
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 --power, 
                 --pulse,
                 s.systray,
-                s.textclock,
                 wibox.container.margin(s.mylayoutbox,0,10,0,0),
             },
     }
