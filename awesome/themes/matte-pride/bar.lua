@@ -83,15 +83,31 @@ return function(s)
     s.systray = wibox.widget.systray()
     s.textclock = wibox.widget {
         font = "Fira Mono 12",
-        widget = wibox.widget.textclock
+        widget = wibox.widget.textbox
     }
+    --vicious.cache(vicious.contrib.cmus_all)
+    local CMUS_SOCKET = os.getenv("XDG_RUNTIME_DIR") .. "/cmus-socket"
+    vicious.register(s.textclock, vicious.widgets.cmus,
+                function (widget, args)
+                    if args["{status}"] ~= "playing" then
+                        return os.date("%a %b %d %H:%M")
+                    else
+                        return ("%s - %s"):format(args["{artist}"], args["{title}"])
+                    end
+                end,
+                13, {CMUS_SOCKET})
     s.memwidget = wibox.widget {
-        font = "Fira Mono 10",
+        foot = "Fira Mono 10",
         widget = wibox.widget.textbox
     }
     vicious.cache(vicious.widgets.mem)
     vicious.register(s.memwidget, vicious.widgets.mem, "$1% Memory", 7)
-
+    s.cpuwidget = wibox.widget {
+        font = "Fira Mono 10",
+        widget = wibox.widget.textbox
+    }
+    vicious.cache(vicious.widgets.cpu)
+    vicious.register(s.cpuwidget, vicious.widgets.cpu, "$1% CPU", 11)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(30),
         shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,beautiful.border_radius) end,
@@ -135,6 +151,23 @@ return function(s)
                 --power, 
                 --pulse,
                 s.systray,
+                {
+                    {
+                        orientation = "vertical",
+                        span_ratio = 0.7,
+                        widget = wibox.widget.separator,
+                    },
+                    strategy = "max",
+                    width = 10,
+                    widget = wibox.container.constraint,
+                },
+                {
+                    s.cpuwidget,
+                    left = 0,
+                    right = 0,
+                    widget = wibox.container.margin,
+                },
+
                 {
                     {
                         orientation = "vertical",
