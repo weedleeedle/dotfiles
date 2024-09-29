@@ -96,6 +96,11 @@ return function(s)
                     end
                 end,
                 13, {CMUS_SOCKET})
+    s.weatherwidget = wibox.widget {
+        widget = wibox.widget.textbox
+    }
+    --vicious.cache(vicious.widgets.weather)
+    vicious.register(s.weatherwidget, vicious.widgets.weather, "${sky}, ${tempf}°F, ${humid}% humidity", 3600, "KRNO")
     s.memwidget = wibox.widget {
         foot = "Fira Mono 10",
         widget = wibox.widget.textbox
@@ -151,6 +156,22 @@ return function(s)
                 --power, 
                 --pulse,
                 s.systray,
+                {
+                    {
+                        orientation = "vertical",
+                        span_ratio = 0.7,
+                        widget = wibox.widget.separator,
+                    },
+                    strategy = "max",
+                    width = 10,
+                    widget = wibox.container.constraint,
+                },
+                {
+                    s.weatherwidget,
+                    left = 0,
+                    right = 0,
+                    widget = wibox.container.margin,
+                },
                 {
                     {
                         orientation = "vertical",
