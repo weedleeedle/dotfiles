@@ -4,6 +4,9 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
+-- holy shit what the fuck
+package.path = package.path .. ";/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua"
+local vicious = require("vicious")
 local dpi = xresources.apply_dpi
 
 local taglist_buttons = gears.table.join(
@@ -23,27 +26,6 @@ local taglist_buttons = gears.table.join(
                     awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
                 )
 
-local tasklist_buttons = gears.table.join(
-                     awful.button({ }, 1, function (c)
-                                              if c == client.focus then
-                                                  c.minimized = true
-                                              else
-                                                  c:emit_signal(
-                                                      "request::activate",
-                                                      "tasklist",
-                                                      {raise = true}
-                                                  )
-                                              end
-                                          end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(0)
-                                          end))
 -- WIBAR
 return function(s)
     -- Each screen has its own tag table.
@@ -99,7 +81,16 @@ return function(s)
     }
 
     s.systray = wibox.widget.systray()
-    s.textclock = wibox.widget.textclock()
+    s.textclock = wibox.widget {
+        font = "Fira Mono 12",
+        widget = wibox.widget.textclock
+    }
+    s.memwidget = wibox.widget {
+        font = "Fira Mono 10",
+        widget = wibox.widget.textbox
+    }
+    vicious.cache(vicious.widgets.mem)
+    vicious.register(s.memwidget, vicious.widgets.mem, "$1% Memory", 7)
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(30),
@@ -134,7 +125,6 @@ return function(s)
                 s.mypromptbox,
             },
             {
-                --s.mytasklist, -- Middle widget
                 s.textclock,
                 widget = wibox.container.place,
                 valign = "center",
@@ -145,7 +135,38 @@ return function(s)
                 --power, 
                 --pulse,
                 s.systray,
-                wibox.container.margin(s.mylayoutbox,0,10,0,0),
+                {
+                    {
+                        orientation = "vertical",
+                        span_ratio = 0.7,
+                        widget = wibox.widget.separator,
+                    },
+                    strategy = "max",
+                    width = 10,
+                    widget = wibox.container.constraint,
+                },
+                {
+                    s.memwidget,
+                    left = 0,
+                    right = 0,
+                    widget = wibox.container.margin,
+                },
+                {
+                    {
+                        orientation = "vertical",
+                        span_ratio = 0.7,
+                        widget = wibox.widget.separator,
+                    },
+                    strategy = "max",
+                    width = 10,
+                    widget = wibox.container.constraint,
+                },
+                {
+                    s.mylayoutbox,
+                    left = 0,
+                    right = 5,
+                    widget = wibox.container.margin,
+                }
             },
     }
 end
