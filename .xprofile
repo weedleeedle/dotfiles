@@ -5,6 +5,9 @@ export THEME="matte-pride"
 export XDG_CONFIG_HOME="/home/viperzer0/.config"
 export DOTFILES="/home/viperzer0/.dotfiles"
 
+# Set default cursor size
+export XCURSOR_SIZE=16
+
 #Some default stuff apparently
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
