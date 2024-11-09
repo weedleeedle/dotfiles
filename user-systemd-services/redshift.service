@@ -1,10 +1,13 @@
 [Unit]
 Description=Redshift
 After=graphical.target
+Requires=geoclue-agent.service
+After=geoclue-agent.service
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/redshift -c /home/viperzer0/.config/redshift.conf
+Restart=on-failure
 
 [Install]
 WantedBy=default.target
