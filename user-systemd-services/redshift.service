@@ -6,7 +6,7 @@ After=geoclue-agent.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/redshift -c /home/viperzer0/.config/redshift.conf
+ExecStart=/usr/bin/redshift -c /home/viperzer0/.dotfiles/redshift.conf
 Restart=on-failure
 
 [Install]
