@@ -20,6 +20,7 @@ ln -sv -t ~ $SOURCE_DIR/.editorconfig
 ln -sv -t ~ $SOURCE_DIR/.omnisharp
 ln -sv -t $CONFIG_DIR $SOURCE_DIR/picom.conf
 ln -svrn user-systemd-services $CONFIG_DIR/systemd/user
+ln -sv -t $CONFIG_DIR/pulse $SOURCE_DIR/pulse/default.pa
 
 # Make dir for rofi theme
 mkdir $CONFIG_DIR/rofi
