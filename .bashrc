@@ -28,7 +28,7 @@ elif [ $LINUX_KERNEL != ${LINUX_KERNEL/lts/} ]; then
 # Realtime kernel
 elif [ $LINUX_KERNEL != ${LINUX_KERNEL/rt/} ]; then
     INSTALLED_VERSION=`pacman -Qi linux-rt | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
-    RUNNING_VERSION=`uname -r | sed 's/-rt//'`
+    RUNNING_VERSION=`uname -r | sed -r 's/([0-9]+\.[0-9]+\.[0-9]+)-rt([0-9]+)-arch([0-9]+)-([0-9]+)-rt/\1\.rt\2\.arch\3\-\4/'`
 # Regular kernel
 else
     INSTALLED_VERSION=`pacman -Qi linux | awk -F ':' '/^Version/ {print $2;}' | tr -d ' '`
