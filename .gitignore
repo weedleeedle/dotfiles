@@ -17,7 +17,7 @@ cmus/*
 packer_compiled.lua
 
 # Script state stuff
-pass-last-commit
+# pass-last-commit
 
 # Systemd symlinks
 *.wants
