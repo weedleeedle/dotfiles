@@ -6,3 +6,6 @@ size = 10
 foreground = "#f89341"
 background = "#101010"
 
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
