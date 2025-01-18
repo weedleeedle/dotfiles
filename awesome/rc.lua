@@ -284,8 +284,12 @@ globalkeys = gears.table.join(globalkeys,
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
+    -- Disabled bc I don't use this anyways, and I would rather use Mod+r for
+    -- saving a replay
+    --[[
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
+    --]]
 
     awful.key({ modkey }, "x",
               function ()

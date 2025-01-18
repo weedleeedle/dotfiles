@@ -20,7 +20,9 @@ function viperzer0.keybinds(globalkeys)
 		awful.key({"Shift" }, "Print", function() awful.spawn("sh /home/viperzer0/.scripts/screenshot.sh -g") end,
 		{description = "screenshot", group = "custom"}),
 		awful.key({"Shift", modkey,},"v", function() awful.spawn("clipmenu") end, {description = "open clipboard", group="custom"}),
-        awful.key({modkey, }, "c", function() awful.spawn('rofi -show pass -modes "pass:/home/viperzer0/.scripts/rofi-pass.sh"') end, {description = "copy password", group="custom"})
+        awful.key({modkey, }, "c", function() awful.spawn('rofi -show pass -modes "pass:/home/viperzer0/.scripts/rofi-pass.sh"') end, {description = "copy password", group="custom"}),
+        awful.key({modkey, }, "r", function() awful.spawn("sh /home/viperzer0/.scripts/save-recording.sh") end,
+        {description = "Save last 60 seconds of recording", group = "custom"})
 	)
 	return globalkeys
 end
