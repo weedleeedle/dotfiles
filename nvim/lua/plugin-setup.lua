@@ -56,6 +56,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     }
 })
+
 --[[
 require("noice").setup({
     lsp = {
