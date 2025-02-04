@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
             local ts_update = require('nvim-treesitter.install').update({with_sync = true})
             ts_update()
         end,
+        ensure_installed = { 'gdscript' }
     }
     use 'flazz/vim-colorschemes'
     use 'junegunn/goyo.vim'
@@ -92,6 +93,32 @@ return require('packer').startup(function(use)
     }
     use {
         "mechatroner/rainbow_csv",
+    }
+    use {
+        "mfussenegger/nvim-dap",
+    }
+
+    use {
+        "epwalsh/obsidian.nvim",
+        tag = "*", -- recommended, use latest release instead of latest commit
+        requires = {
+            -- Required
+            "nvim-lua/plenary.nvim",
+            -- Optional
+            "hrsh7th/nvim-cmp",
+            "nvim-telescope/telescope.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("obsidian").setup({
+                workspaces = {
+                    {
+                        name = "personal",
+                        path = "~/obsidian/"
+                    }
+                }
+            })
+        end,
     }
     --[[
     use {
