@@ -116,6 +116,18 @@ return require('packer').startup(function(use)
                         name = "personal",
                         path = "~/obsidian/"
                     }
+                },
+                daily_notes = {
+                    folder = "Daily",
+                    date_format = "%Y/%m/%Y-%m-%d",
+                    template = "Daily.md",
+                    default = require("obsidian").defaults.daily_notes
+                },
+                templates = {
+                    folder = "00 System/Templates",
+                    date_format = "%Y-%m-%d",
+                    time_format = "%H:%M",
+                    default = require("obsidian").defaults.templates
                 }
             })
         end,
