@@ -82,7 +82,7 @@ return function(s)
     s.textclock = wibox.widget.textclock()
     s.systray = wibox.widget.systray()
     s.musicwidget = wibox.widget {
-        font = "Fira Mono 12",
+        --font = "Fira Mono 10",
         widget = wibox.widget.textbox
     }
     --vicious.cache(vicious.contrib.cmus_all)
@@ -110,13 +110,13 @@ return function(s)
     vicious.cache(vicious.widgets.mem)
     vicious.register(s.memwidget, vicious.widgets.mem, "$1% Memory", 7)
     s.cpuwidget = wibox.widget {
-        font = "Fira Mono 10",
+        --font = "Fira Mono 10",
         widget = wibox.widget.textbox
     }
     vicious.cache(vicious.widgets.cpu)
     vicious.register(s.cpuwidget, vicious.widgets.cpu, "$1% CPU", 11)
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(30),
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(23),
         shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,beautiful.border_radius) end,
         margins = { bottom = beautiful.useless_gap }
     })
