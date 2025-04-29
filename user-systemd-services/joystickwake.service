@@ -1,0 +1,10 @@
+[Unit]
+Description=Joystickwake
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/joystickwake
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
