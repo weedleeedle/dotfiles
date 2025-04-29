@@ -115,6 +115,11 @@ return function(s)
     }
     vicious.cache(vicious.widgets.cpu)
     vicious.register(s.cpuwidget, vicious.widgets.cpu, "$1% CPU", 11)
+    s.gpuwidget = wibox.widget {
+        widget = wibox.widget.textbox
+    }
+    vicious.cache(vicious.widgets.amdgpu)
+    vicious.register(s.gpuwidget, vicious.widgets.amdgpu, "${gpu_usage}% GPU", 5, "card1")
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "bottom", screen = s, width = "99%", height= dpi(23),
         shape = function(cr,w,h) gears.shape.rounded_rect(cr,w,h,beautiful.border_radius) end,
@@ -189,6 +194,22 @@ return function(s)
                     widget = wibox.container.margin,
                 },
 
+                {
+                    {
+                        orientation = "vertical",
+                        span_ratio = 0.7,
+                        widget = wibox.widget.separator,
+                    },
+                    strategy = "max",
+                    width = 10,
+                    widget = wibox.container.constraint,
+                },
+                {
+                    s.gpuwidget,
+                    left = 0,
+                    right = 0,
+                    widget = wibox.container.margin,
+                },
                 {
                     {
                         orientation = "vertical",
