@@ -1,6 +1,6 @@
 .include /etc/pulse/default.pa
 load-module module-switch-on-connect
-load-module module-combine-sink sink_name=combined slaves=alsa_output.pci-0000_03_00.1.hdmi-stereo,alsa_output.pci-0000_0b_00.6.analog-stereo sink_properties="device.description='Combined Output'"
+load-module module-combine-sink sink_name=combined slaves=alsa_output.pci-0000_03_00.1.hdmi-stereo,alsa_output.pci-0000_08_00.6.analog-stereo sink_properties="device.description='Combined Output'"
 load-module module-remap-sink master=combined sink_name=mono sink_properties="device.description='Mono Output for Combined Audio'" channels=2 channel_map=mono,mono
 set-default-sink mono
 
