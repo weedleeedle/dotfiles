@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 1
-ID=`xsetwacom list devices | grep "STYLUS" | awk '{print $9}'`
+sleep 2
+ID=`xsetwacom list devices | grep "STYLUS" | awk '{print $11}'`
 echo $ID
-xsetwacom set $ID MapToOutput "HEAD-0"
+xsetwacom set $ID MapToOutput "DisplayPort-1"
