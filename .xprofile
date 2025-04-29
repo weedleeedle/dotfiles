@@ -14,6 +14,12 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+# Add fcitx to X11 applications
+export XMODIFIERS=@im=fcitx
+# Add fcitx to GTK and QT
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
