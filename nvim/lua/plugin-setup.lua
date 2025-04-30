@@ -3,13 +3,14 @@ require("telescope").setup {
         file_ignore_patterns = {
             "%.png",
             "%.jpg",
-        }
+        },
     },
     extensions = {
         picker_list = {},
     },
     pickers = {
         find_files = {
+            find_command = { "rg", "--files", "-L" },
         }
     }
 }
