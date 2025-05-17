@@ -8,7 +8,7 @@ fi
 
 while true
 do
-    xdotool key --window $window c m
+    xdotool key --window $window m e
     sleep 0.01
 done
 
