@@ -56,6 +56,12 @@ lspconfig.svelte.setup{}
 
 lspconfig.gdscript.setup{}
 
+lspconfig.cssls.setup {
+    capabilities = capabilities
+}
+
+lspconfig.html.setup{}
+
 local dap = require("dap")
 dap.adapters.godot = {
     type = "server",
