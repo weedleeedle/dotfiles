@@ -4,13 +4,18 @@ for file in *; do
     if [ -f "$file" ]; then
         feh -. $file &
         feh_pid=$!
-        echo "Enter new filename (no file extension) or type d to delete the file:"
+        echo "Enter new filename (no file extension), type s to skip the file, or type d to delete the file:"
         read new_name
         if [ "$new_name" = "d" ]; then
             rm $file
             kill $feh_pid
             continue
         fi
+        if [ "$new_name" = "s" ]; then
+            kill $feh_pid
+            continue
+        fi
+
         filename=$(basename -- "$file")
         extension="${filename##*.}"
         new_filename="$new_name.$extension"
