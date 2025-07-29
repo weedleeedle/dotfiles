@@ -78,3 +78,5 @@ dap.configurations.gdscript = {
         launch_scene = true,
     }
 }
+
+lspconfig.clangd.setup{}
