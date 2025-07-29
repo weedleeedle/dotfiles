@@ -35,14 +35,17 @@ vim.fn.ToggleLineNumbers = ToggleLineNumbers
 function WordProcessorMode()
     vim.bo.textwidth = 0
     vim.bo.smartindent = true
-    vim.bo.spell = true
+    vim.wo.spell = true
     vim.bo.spelllang = "en_US"
     vim.bo.expandtab = false
     --Might have to figure out word count again?
     --vim.wo.statusline = "%{WordCount()} words"
     vim.wo.number = false
-    vim.fn.Goyo()
+    --vim.cmd("Goyo")
 end
+
+vim.api.nvim_buf_create_user_command(0, "WritingMode", WordProcessorMode, {nargs = 0})
+
 --[[
 vim.opt.statusline = { "%1*" } -- Highlight???
 vim.opt.statusline:append { "%<%F" } -- File Name, cut if needed at start
