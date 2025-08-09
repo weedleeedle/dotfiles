@@ -132,6 +132,9 @@ return require('packer').startup(function(use)
             })
         end,
     }
+    use {
+        "vim-scripts/vim-auto-save",
+    }
     --[[
     use {
         "folke/noice.nvim",
