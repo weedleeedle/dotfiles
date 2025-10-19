@@ -36,12 +36,12 @@ function WordProcessorMode()
     vim.bo.textwidth = 0
     vim.bo.smartindent = true
     vim.wo.spell = true
-    vim.bo.spelllang = "en_US"
+    vim.bo.spelllang = "en_us"
     vim.bo.expandtab = false
     --Might have to figure out word count again?
     --vim.wo.statusline = "%{WordCount()} words"
     vim.wo.number = false
-    --vim.cmd("Goyo")
+    vim.cmd("Goyo")
 end
 
 vim.api.nvim_buf_create_user_command(0, "WritingMode", WordProcessorMode, {nargs = 0})
