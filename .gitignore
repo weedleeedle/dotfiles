@@ -21,3 +21,6 @@ packer_compiled.lua
 
 # Systemd symlinks
 *.wants
+
+# Don't save user dictionary
+nvim/spell
