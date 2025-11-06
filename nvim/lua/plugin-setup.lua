@@ -82,6 +82,15 @@ vim.api.nvim_create_user_command("StepOver", "lua require'dap'.step_over()", {})
 vim.api.nvim_create_user_command("StepInto", "lua require'dap'.step_into()", {})
 vim.api.nvim_create_user_command("REPL", "lua require'dap'.repl.open()", {})
 
+require("aerial").setup({
+    on_attach = function(bufnr)
+        vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+        vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+    end,
+})
+
+vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle! left<CR>")
+
 --[[
 require("noice").setup({
     lsp = {

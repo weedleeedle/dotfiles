@@ -135,6 +135,18 @@ return require('packer').startup(function(use)
     use {
         "vim-scripts/vim-auto-save",
     }
+    use {
+        "stevearc/aerial.nvim",
+        config = function()
+            require("aerial").setup()
+        end,
+    }
+    --[[
+    use {
+        "oflisback/obsidian-bridge.nvim",
+    }
+    --]]
+
     --[[
     use {
         "folke/noice.nvim",
