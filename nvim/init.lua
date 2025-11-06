@@ -1,7 +1,7 @@
 local map = require("map")
 
 -- Set Map Leader
-vim.g.mapleader = "'"
+vim.g.mapleader = ","
 
 -- Keyboard mappings
 nmap(";",":")
