@@ -1,7 +1,9 @@
-local lspconfig = require('lspconfig')
+-- local vim.lsp.enable = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspconfig.rust_analyzer.setup{
+vim.lsp.enable("rust_analyzer")
+
+vim.lsp.config("rust_analyzer",{
     capabilites = capabilities,
     --[[
     settings = {
@@ -12,22 +14,28 @@ lspconfig.rust_analyzer.setup{
         }
     }
     --]]
-}
+})
 
-lspconfig.omnisharp.setup {
+vim.lsp.enable("omnisharp")
+
+vim.lsp.config("omnisharp", {
     cmd = { "dotnet", "/usr/lib/omnisharp-roslyn/OmniSharp.dll" },
     enable_editorconfig_support = true,
     enable_roslyn_analyzers = true,
     organize_imports_on_format = true,
     enable_import_completion = true,
     capabilities = capabilities,
-}
+})
 
-lspconfig.ts_ls.setup {
+vim.lsp.enable("ts_ls")
+
+vim.lsp.config("ts_ls", {
     capabilities = capabilities
-}
+})
 
-lspconfig.lua_ls.setup {
+vim.lsp.enable("lua_ls")
+
+vim.lsp.config("lua_ls", {
     -- Lots of settings for NeoVIM since that's what I mostly use vim for.
     settings = {
         Lua = {
@@ -46,21 +54,31 @@ lspconfig.lua_ls.setup {
         },
     },
     capabilities = capabilities
-}
+})
 
-lspconfig.pyright.setup {
+vim.lsp.enable("pyright")
+
+vim.lsp.config("pyright", {
     capabilities = capabilities,
-}
+})
 
-lspconfig.svelte.setup{}
+vim.lsp.enable("svelte")
 
-lspconfig.gdscript.setup{}
+vim.lsp.config("svelte", {})
 
-lspconfig.cssls.setup {
+vim.lsp.enable("gdscript")
+
+vim.lsp.config("gdscript", {})
+
+vim.lsp.enable("cssls")
+
+vim.lsp.config("cssls", {
     capabilities = capabilities
-}
+})
 
-lspconfig.html.setup{}
+vim.lsp.enable("html")
+
+vim.lsp.config("html", {})
 
 local dap = require("dap")
 dap.adapters.godot = {
@@ -79,4 +97,6 @@ dap.configurations.gdscript = {
     }
 }
 
-lspconfig.clangd.setup{}
+vim.lsp.enable("clangd")
+
+vim.lsp.config("clangd", {})
