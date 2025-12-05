@@ -129,6 +129,7 @@ require("obsidian").setup({
 
             return out
         end,
+        sort = { "aliases", "tags" },
     }
 })
 
