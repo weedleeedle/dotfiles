@@ -103,7 +103,8 @@ require("obsidian").setup({
     daily_notes = {
         folder = "Daily",
         date_format = "%Y/%m/%Y-%m-%d",
-        template = "Daily.md",
+        template = "00 System/Templates/Daily",
+        default_tags = {},
         --default = require("obsidian").defaults.daily_notes
     },
     templates = {
@@ -130,7 +131,27 @@ require("obsidian").setup({
             return out
         end,
         sort = { "aliases", "tags" },
+    },
+    ui = {
+        enable = true,
     }
+})
+
+-- Disable document symbols
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == "obsidian-ls" then
+            client.server_capabilities.documentSymbolProvider = false
+        end
+    end,
+})
+
+--Apply highlighting since I think it gets cleared somehow???
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        require("obsidian.ui").setup(Obsidian.workspace, Obsidian.opts.ui)
+    end
 })
 
 --[[
