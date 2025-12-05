@@ -1,4 +1,5 @@
 require("telescope").setup {
+
     defaults = {
         file_ignore_patterns = {
             "%.png",
@@ -90,6 +91,46 @@ require("aerial").setup({
 })
 
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle! left<CR>")
+
+require("obsidian").setup({
+    legacy_commands = false,
+    workspaces = {
+        {
+            name = "personal",
+            path = "~/obsidian/"
+        }
+    },
+    daily_notes = {
+        folder = "Daily",
+        date_format = "%Y/%m/%Y-%m-%d",
+        template = "Daily.md",
+        --default = require("obsidian").defaults.daily_notes
+    },
+    templates = {
+        folder = "00 System/Templates",
+        date_format = "%Y-%m-%d",
+        time_format = "%H:%M",
+        --default = require("obsidian").defaults.templates
+    },
+    note_id_func = function(title)
+        return title
+    end,
+    frontmatter = {
+        enabled = true,
+        func = function(note)
+            local out = { aliases = note.aliases, tags = note.tags }
+
+            -- We "re-add" any manually added metadata.
+            if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+                for k,v in pairs(note.metadata) do
+                    out[k] =v
+                end
+            end
+
+            return out
+        end,
+    }
+})
 
 --[[
 require("noice").setup({

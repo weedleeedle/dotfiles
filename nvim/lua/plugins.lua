@@ -99,7 +99,7 @@ return require('packer').startup(function(use)
     }
 
     use {
-        "epwalsh/obsidian.nvim",
+        "obsidian-nvim/obsidian.nvim",
         tag = "*", -- recommended, use latest release instead of latest commit
         requires = {
             -- Required
@@ -109,28 +109,6 @@ return require('packer').startup(function(use)
             "nvim-telescope/telescope.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
-        config = function()
-            require("obsidian").setup({
-                workspaces = {
-                    {
-                        name = "personal",
-                        path = "~/obsidian/"
-                    }
-                },
-                daily_notes = {
-                    folder = "Daily",
-                    date_format = "%Y/%m/%Y-%m-%d",
-                    template = "Daily.md",
-                    default = require("obsidian").defaults.daily_notes
-                },
-                templates = {
-                    folder = "00 System/Templates",
-                    date_format = "%Y-%m-%d",
-                    time_format = "%H:%M",
-                    default = require("obsidian").defaults.templates
-                }
-            })
-        end,
     }
     use {
         "vim-scripts/vim-auto-save",
@@ -140,6 +118,10 @@ return require('packer').startup(function(use)
         config = function()
             require("aerial").setup()
         end,
+    }
+    use {
+        "nvim-mini/mini.nvim",
+        version = false
     }
     --[[
     use {

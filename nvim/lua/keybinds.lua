@@ -4,6 +4,7 @@ local dap = require('dap')
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
+--vim.keymap.set('n', '<leader>ob', vim.lsp.buf.references, {})
 vim.keymap.set('n', '<leader>fh', require("telescope").extensions.picker_list.picker_list, {})
 vim.keymap.set('n', '<F3>', require('telescope').extensions.file_browser.file_browser, {})
 
@@ -47,7 +48,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F5>', dap.continue, opts)
     end,
 })
-
-
-
-
