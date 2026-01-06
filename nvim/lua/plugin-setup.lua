@@ -116,6 +116,8 @@ require("obsidian").setup({
     note_id_func = function(title)
         return title
     end,
+    new_notes_location = "notes_subdir",
+    notes_subdir = "00 System/Inbox",
     frontmatter = {
         enabled = true,
         func = function(note)
