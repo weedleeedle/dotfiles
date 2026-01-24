@@ -1,9 +1,11 @@
-- CMD: mux -c chain_1 -c default -c no-remap
+- CMD: mux -c chain_1 -c chain_2 -c no-remap -c default
 - JOB:
     - mux -i default | dual-function-keys -c /etc/interception/dual-function-capslock.yaml | mux -o no-remap
     - mux -i no-remap | uinput -c /etc/interception/steelseries-keyboard.yaml
 - JOB:
-    - mux -i chain_1 | xswitch -o default -c Minecraft.* -o no-remap 
+    - mux -i chain_1 | xswitch -o chain_2 -c Minecraft.* -o no-remap 
+- JOB:
+    - mux -i chain_2 | xswitch -o default -c "dota2" -o no-remap
 - JOB: intercept -g $DEVNODE | xswitch -o chain_1 -c steam_app_[0-9]* -o no-remap
   DEVICE:
       LINK: /dev/input/by-id/usb-SteelSeries_SteelSeries_Apex_100_Gaming_Keyboard-event-kbd
