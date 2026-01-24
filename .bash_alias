@@ -6,4 +6,5 @@ alias scrot="escrotum"
 alias tsm="transmission-remote"
 alias weather="curl wttr.in"
 alias rm="trash"
-
+alias sc="systemctl"
+alias jc="journalctl"
