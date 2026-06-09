@@ -74,4 +74,4 @@ nvidia-settings --load-config-only &
 #autorandr -c 
 xcompmgr &
 #Start awesome!
-exec /usr/bin/awesome -c /home/viperzer0/.config/awesome/rc.lua >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
+AWESOME_IGNORE_LGI=1 exec /usr/bin/awesome -c /home/viperzer0/.config/awesome/rc.lua >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
