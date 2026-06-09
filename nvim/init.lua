@@ -89,6 +89,9 @@ vim.opt.formatoptions:remove { 'c', 'o', 'r' }
 -- Tags file
 vim.o.tags = "./tags;"
 
+-- Enable autosave
+vim.g.auto_save = 1
+
 -- PLUGINS
 require("plugins")
 require("plugin-setup")
